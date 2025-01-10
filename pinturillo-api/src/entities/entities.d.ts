@@ -88,3 +88,18 @@ export type CustomSocket = {
   io: Server<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap, any>;
   socket: Socket<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap, any>;
 };
+
+// **** Config ****
+
+export type Config = {
+  API: {
+    PORT: number;
+  };
+  REDIS: {
+    HOST: string;
+    PORT: number;
+  };
+  CLIENT: {
+    URL: string;
+  };
+};

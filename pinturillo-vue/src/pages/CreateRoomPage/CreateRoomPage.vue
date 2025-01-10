@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import MainLayout from "@/layouts/MainLayout/MainLayout.vue";
-import SectionFormCreateRoom from "@/containers/CreateRoomPage/Sections/SectionFormCreateRoom.vue";
 import { onBeforeUnmount, onMounted } from "vue";
-import socket from "@/socket";
 import { useRouter } from "vue-router";
+
 import { EVENTS_SOCKET_SERVER } from "@/entities/enums";
+
+import SectionFormCreateRoom from "@/containers/CreateRoomPage/Sections/SectionFormCreateRoom.vue";
+
+import MainLayout from "@/layouts/MainLayout/MainLayout.vue";
+
+import socket from "@/socket";
 
 const router = useRouter();
 

@@ -1,53 +1,37 @@
 import { createServer } from "node:http";
 import { Server } from "socket.io";
 
-import app from "@src/app";
-import { configs } from "@src/configs";
-import { getRedis, setRedis } from "@src/redisClient";
-import {
-  Lobby,
-  Message,
-  OptionsRoom,
-  Room,
-  Rooms,
-  User,
-  Users,
-} from "@src/entities/entities";
-import {
-  EVENTS_SOCKET_CLIENT,
-  EVENTS_SOCKET_SERVER,
-} from "@src/entities/enums";
-import {
-  generateWordPlaceholder,
-  getFourRandomWords,
-  getRoomsAvailables,
-  revealLetter,
-} from "./utills/utils";
-import { connectEvent } from "./events/connect/connectEvent";
-import { disconnectEvent } from "./events/disconnect/disconnectEvent";
-import { joinLobbyEvent } from "./events/joinLobby/joinLobbyEvent";
-import { leaveLobbyEvent } from "./events/leaveLobby/leaveLobbyEvent";
-import { sendMessageLobbyEvent } from "./events/sendMessageLobby/sendMessageLobbyEvent";
-import { createRoomEvent } from "./events/createRoom/createRoomEvent";
-import { joinRoomLobbyEvent } from "./events/joinRoomLobby/joinRoomLobbyEvent";
-import { loginPrivateRoomEvent } from "./events/loginPrivateRoom/loginPrivateRoomEvent";
-import { startGameEvent } from "./events/startGame/startGameEvent";
-import { JoinGameEvent } from "./events/joinGame/joinGameEvent";
-import { wordSelectedGameEvent } from "./events/wordSelectedGame/wordSelectedGameEvent";
-import { canvasImageGameEvent } from "./events/canvasImageGame/canvasImageGameEvent";
-import { canvasClearGameEvent } from "./events/canvasClearGame/canvasClearGameEvent";
-import { countdownGameEvent } from "./events/countdownGame/countdownGameEvent";
-import { sendMessageGameEvent } from "./events/sendMessageGame/sendMessageGameEvent";
-import { newPainterEvent } from "./events/newPainter/newPainterEvent";
-import { nextRoundGameEvent } from "./events/nextRoundGame/nextRoundGameEvent";
-import { finishGameEvent } from "./events/finishGame/finishGameEvent";
+import { Lobby, OptionsRoom, Rooms, Users } from "@src/entities/entities";
+import { EVENTS_SOCKET_CLIENT } from "@src/entities/enums";
 
-export const idLobby = "lobby_room";
+import app from "@src/app";
+import { config } from "@src/config";
+import { getRedis, setRedis } from "@src/redisClient";
+import { idLobby } from "@src/constants/constants";
+
+import { connectEvent } from "@src/events/connect/connectEvent";
+import { disconnectEvent } from "@src/events/disconnect/disconnectEvent";
+import { joinLobbyEvent } from "@src/events/joinLobby/joinLobbyEvent";
+import { leaveLobbyEvent } from "@src/events/leaveLobby/leaveLobbyEvent";
+import { sendMessageLobbyEvent } from "@src/events/sendMessageLobby/sendMessageLobbyEvent";
+import { createRoomEvent } from "@src/events/createRoom/createRoomEvent";
+import { joinRoomLobbyEvent } from "@src/events/joinRoomLobby/joinRoomLobbyEvent";
+import { loginPrivateRoomEvent } from "@src/events/loginPrivateRoom/loginPrivateRoomEvent";
+import { startGameEvent } from "@src/events/startGame/startGameEvent";
+import { JoinGameEvent } from "@src/events/joinGame/joinGameEvent";
+import { wordSelectedGameEvent } from "@src/events/wordSelectedGame/wordSelectedGameEvent";
+import { canvasImageGameEvent } from "@src/events/canvasImageGame/canvasImageGameEvent";
+import { canvasClearGameEvent } from "@src/events/canvasClearGame/canvasClearGameEvent";
+import { countdownGameEvent } from "@src/events/countdownGame/countdownGameEvent";
+import { sendMessageGameEvent } from "@src/events/sendMessageGame/sendMessageGameEvent";
+import { newPainterEvent } from "@src/events/newPainter/newPainterEvent";
+import { nextRoundGameEvent } from "@src/events/nextRoundGame/nextRoundGameEvent";
+import { finishGameEvent } from "@src/events/finishGame/finishGameEvent";
 
 const server = createServer(app);
 
-const PORT = configs.API.PORT;
-const CLIENT_URL = configs.CLIENT.URL;
+const PORT = config.API.PORT;
+const CLIENT_URL = config.CLIENT.URL;
 
 const INITIAL_USERS: Users = {};
 const INITIAL_ROOMS: Rooms = {};
@@ -182,7 +166,7 @@ io.on("connection", async (socket) => {
   );
 });
 
-server.listen(PORT, async () => {
+const onInit = async (): Promise<void> => {
   console.log(`Server running on ${PORT}`);
 
   setRedis("users", INITIAL_USERS);
@@ -196,4 +180,6 @@ server.listen(PORT, async () => {
   console.log("Users Restarted", users);
   console.log("Rooms Restarted", rooms);
   console.log("Lobby Restarted", lobby);
-});
+};
+
+server.listen(PORT, onInit);

@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import imagePanting from "@/assets/pintando.png";
-import imageWasPainted from "@/assets/pinto.png";
-import star from "@/assets/star.png";
 import { Player } from "@/entities/entities";
+
 import { useUserStore } from "@/stores/user/user";
+
+import imagePanting from "@/assets/images/pintando.png";
+import imageWasPainted from "@/assets/images/pinto.png";
+import star from "@/assets/images/star.png";
 
 const userStore = useUserStore();
 
@@ -24,7 +26,7 @@ const props = defineProps<{
       <div class="flex flex-col items-start justify-center ml-2">
         <h3
           :class="[
-            `text-xl  font-semibold overflow-hidden truncate w-12 xl:w-24 2xl:w-36 ${
+            `text-xl font-semibold overflow-hidden truncate w-12 xl:w-24 2xl:w-36 ${
               props.player.id === userStore.id ? 'text-tertiary' : 'text-white'
             }`,
           ]"
@@ -50,7 +52,7 @@ const props = defineProps<{
     />
     <img
       :src="imagePanting"
-      alt="player planting"
+      alt="player painting"
       class="w-8 h-8 object-contain"
       v-if="player.isPaiting && !player.alreadyPainted"
     />

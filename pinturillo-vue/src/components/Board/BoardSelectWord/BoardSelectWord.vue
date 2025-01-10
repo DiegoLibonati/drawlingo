@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import ButtonPrimary from "@/components/Buttons/ButtonPrimary/ButtonPrimary.vue";
 import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
+
+import ButtonPrimary from "@/components/Buttons/ButtonPrimary/ButtonPrimary.vue";
+
 import socket from "@/socket";
 import { useRoomStore } from "@/stores/room/room";
 

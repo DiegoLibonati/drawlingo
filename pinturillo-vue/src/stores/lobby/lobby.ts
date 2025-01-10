@@ -1,8 +1,8 @@
-import { Lobby } from "@/entities/entities";
 import { defineStore, acceptHMRUpdate } from "pinia";
 
-export const useLobbyStore = defineStore({
-  id: "lobby",
+import { Lobby } from "@/entities/entities";
+
+export const useLobbyStore = defineStore("lobby", {
   state: (): Lobby => ({
     id: "lobby_room",
     rooms: {},

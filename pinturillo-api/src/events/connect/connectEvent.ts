@@ -1,7 +1,9 @@
 import { CustomSocket, Lobby, User, Users } from "@src/entities/entities";
-import { getRedis, setRedis } from "@src/redisClient";
-import { idLobby } from "@src/index";
+
 import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
+
+import { getRedis, setRedis } from "@src/redisClient";
+import { idLobby } from "@src/constants/constants";
 
 interface ConnectEventProps extends CustomSocket {
   username: string;

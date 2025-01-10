@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted } from "vue";
-import MainLayout from "@/layouts/MainLayout/MainLayout.vue";
-import { useUserStore } from "@/stores/user/user";
-import { useLobbyStore } from "@/stores/lobby/lobby";
-import socket from "@/socket";
+
 import { Lobby } from "@/entities/entities";
+import { EVENTS_SOCKET_CLIENT, EVENTS_SOCKET_SERVER } from "@/entities/enums";
+
+import MainLayout from "@/layouts/MainLayout/MainLayout.vue";
+
 import SectionLobbyRooms from "@/containers/LobbyPage/Sections/SectionLobbyRooms.vue";
 import SectionLobbyChat from "@/containers/LobbyPage/Sections/SectionLobbyChat.vue";
-import { EVENTS_SOCKET_CLIENT, EVENTS_SOCKET_SERVER } from "@/entities/enums";
+
+import socket from "@/socket";
+import { useUserStore } from "@/stores/user/user";
+import { useLobbyStore } from "@/stores/lobby/lobby";
 
 const userStore = useUserStore();
 const lobbyStore = useLobbyStore();

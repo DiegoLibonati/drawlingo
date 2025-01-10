@@ -1,9 +1,12 @@
 <script setup lang="ts">
+import { ref } from "vue";
+
+import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
+
 import ButtonPrimary from "@/components/Buttons/ButtonPrimary/ButtonPrimary.vue";
 import InputTransparent from "@/components/Inputs/InputTransparent/InputTransparent.vue";
-import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
+
 import socket from "@/socket";
-import { ref } from "vue";
 
 type FormChatLobby = {
   message: string;

@@ -74,6 +74,16 @@ export type Lobby = {
   users: User[];
 };
 
+// **** Canvas ****
+
+export type Canvas = {
+  canDraw: boolean;
+  pos: { x: number; y: number };
+  color: string;
+  size: number;
+  canvas: HTMLCanvasElement | null;
+};
+
 // **** MessageLobby ****
 
 export type Message = {

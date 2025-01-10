@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import Logo from "@/components/Logo/Logo.vue";
 import { computed } from "vue";
 import { useRoute } from "vue-router";
+
+import Logo from "@/components/Logo/Logo.vue";
 
 const route = useRoute();
 

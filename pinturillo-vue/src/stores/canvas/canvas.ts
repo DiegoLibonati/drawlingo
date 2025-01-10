@@ -1,15 +1,8 @@
 import { defineStore, acceptHMRUpdate } from "pinia";
 
-type Canvas = {
-  canDraw: boolean;
-  pos: { x: number; y: number };
-  color: string;
-  size: number;
-  canvas: HTMLCanvasElement | null;
-};
+import { Canvas } from "@/entities/entities";
 
-export const useCanvasStore = defineStore({
-  id: "canvas",
+export const useCanvasStore = defineStore("canvas", {
   state: (): Canvas => ({
     canDraw: false,
     pos: {

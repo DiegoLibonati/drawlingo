@@ -1,7 +1,8 @@
 import { CustomSocket, Lobby, User, Users } from "@src/entities/entities";
 import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
-import { idLobby } from "@src/index";
+
 import { getRedis, setRedis } from "@src/redisClient";
+import { idLobby } from "@src/constants/constants";
 
 interface LeaveLobbyEventProps extends CustomSocket {}
 

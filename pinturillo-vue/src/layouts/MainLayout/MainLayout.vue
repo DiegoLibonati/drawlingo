@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import Mobile from "@/components/Mobile/Mobile.vue";
 import { computed } from "vue";
 import { useRoute } from "vue-router";
+
+import Mobile from "@/components/Mobile/Mobile.vue";
 
 const props = defineProps<{ class: string; layoutType: "flex" | "grid" }>();
 const route = useRoute();

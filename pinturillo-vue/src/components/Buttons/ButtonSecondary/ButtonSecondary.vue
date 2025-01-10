@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { ButtonHTMLAttributes } from "vue";
+
 const props = defineProps<{
+  type: ButtonHTMLAttributes["type"];
   class?: string | string[];
-  type: "button" | "submit" | "reset" | undefined;
   click?: () => void;
 }>();
 </script>

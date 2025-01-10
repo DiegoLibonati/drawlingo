@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import CardPlayerScore from "@/components/Cards/CardPlayerScore/CardPlayerScore.vue";
+
 import { useRoomStore } from "@/stores/room/room";
 
 const roomStore = useRoomStore();

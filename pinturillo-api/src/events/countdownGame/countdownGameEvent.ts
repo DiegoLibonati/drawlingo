@@ -1,7 +1,8 @@
 import { CustomSocket, Room, Rooms } from "@src/entities/entities";
 import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
+
 import { getRedis, setRedis } from "@src/redisClient";
-import { getFourRandomWords, revealLetter } from "@src/utills/utils";
+import { revealLetter } from "@src/helpers/revealLetter";
 
 interface CountdownGameEventProps extends CustomSocket {
   idRoom: string;

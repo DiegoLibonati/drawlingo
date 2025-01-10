@@ -1,9 +1,10 @@
-import { User } from "@/entities/entities";
-import { useSessionStorage } from "@/hooks/useSessionStorage";
 import { defineStore, acceptHMRUpdate } from "pinia";
 
-export const useUserStore = defineStore({
-  id: "user",
+import { User } from "@/entities/entities";
+
+import { useSessionStorage } from "@/hooks/useSessionStorage";
+
+export const useUserStore = defineStore("user", {
   state: (): User => ({
     id: "",
     username: "",

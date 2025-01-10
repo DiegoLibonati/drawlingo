@@ -1,7 +1,9 @@
 import { CustomSocket, Room, Rooms } from "@src/entities/entities";
 import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
+
 import { getRedis, setRedis } from "@src/redisClient";
-import { getFourRandomWords } from "@src/utills/utils";
+import { getFourRandomWords } from "@src/helpers/getFourRandomWords";
+import { WORDS } from "@src/constants/constants";
 
 interface NextRoundGameEventProps extends CustomSocket {
   idRoom: string;
@@ -43,7 +45,7 @@ export const nextRoundGameEvent = async ({
     players: playersReset,
     wordToGuess: {
       actualWord: "",
-      wordsToChoose: await getFourRandomWords(),
+      wordsToChoose: await getFourRandomWords(WORDS),
       wordWithPlaceholder: "",
     },
   };

@@ -1,8 +1,9 @@
 import * as redis from "redis";
-import { configs } from "@src/configs";
 
-const REDIS_HOST = configs.REDIS.HOST;
-const REDIS_PORT = configs.REDIS.PORT;
+import { config } from "@src/config";
+
+const REDIS_HOST = config.REDIS.HOST;
+const REDIS_PORT = config.REDIS.PORT;
 
 const redisClient = redis.createClient({
   url: `redis://${REDIS_HOST}:${REDIS_PORT}`,

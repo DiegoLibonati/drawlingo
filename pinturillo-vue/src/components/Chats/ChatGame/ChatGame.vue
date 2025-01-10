@@ -1,13 +1,17 @@
 <script setup lang="ts">
-import MessageChat from "@/components/Chats/MessageChat/MessageChat.vue";
-import FormChatGame from "@/components/Forms/FormChatGame/FormChatGame.vue";
+import { onBeforeUnmount, onMounted, ref, watch } from "vue";
+
 import { Message } from "@/entities/entities";
 import { EVENTS_SOCKET_SERVER } from "@/entities/enums";
+
+import MessageChat from "@/components/Chats/MessageChat/MessageChat.vue";
+import FormChatGame from "@/components/Forms/FormChatGame/FormChatGame.vue";
+
 import socket from "@/socket";
 import { useUserStore } from "@/stores/user/user";
-import { onBeforeUnmount, onMounted, ref, watch } from "vue";
-import successMp3 from "@/assets/success.mp3";
 import { useRoomStore } from "@/stores/room/room";
+
+import successMp3 from "@/assets/audios/success.mp3";
 
 const roomStore = useRoomStore();
 const userStore = useUserStore();
@@ -22,7 +26,6 @@ onMounted(() => {
 
     if (message.success && userStore.id === message.user.id) {
       const audio = new Audio(successMp3);
-      console.log(audio);
       audio.play();
     }
   });

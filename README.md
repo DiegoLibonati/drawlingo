@@ -3,10 +3,11 @@
 ## Getting Started
 
 1. Clone the repository with `git clone "repository link"`
-2. Go to the folder where you cloned your repository
-3. Run `docker-compose build --no-cache` in the terminal
-4. Once built, you must execute the command: `docker-compose up`
-5. You have to be standing in the folder containing the: `docker-compose.yml`
+2. Join to `pinturillo-vue` folder and `pinturillo-api` folder and execute: `npm install` or `yarn install` in the terminal
+3. Go to the previous folder and execute: `docker-compose build --no-cache` in the terminal
+4. Once built, you must execute the command: `docker-compose up --force-recreate` in the terminal
+
+NOTE: You have to be standing in the folder containing the: `docker-compose.yml` and you need to install `Docker Desktop` if you are in Windows.
 
 ## Description
 
@@ -20,18 +21,70 @@ This repository is an application made with vue and socket io. It is a game wher
 4. Tailwind CSS
 5. Docker
 6. Redis
+7. Socket IO
 
 ## Libraries used
 
-1. Express
-2. Morgan
-3. Socket IO
-4. Uuid
-5. Nodemon
-6. Vue Router
-7. Pinia
-8. Oh Vue Icons
-9. Socket IO Client
+### Frontend
+
+#### Dependencies
+
+```
+"@types/jest": "^29.5.14"
+"@types/node": "^20.14.8"
+"oh-vue-icons": "^1.0.0-rc3"
+"pinia": "^2.1.7"
+"socket.io-client": "^4.7.5"
+"vue": "^3.4.29"
+"vue-router": "^4.4.0"
+```
+
+#### devDependencies
+
+```
+"@vitejs/plugin-vue": "^5.0.5"
+"@vue/compiler-sfc": "^3.5.13"
+"@vue/test-utils": "^2.4.6"
+"@vue/vue3-jest": "^29.2.6"
+"autoprefixer": "^10.4.19"
+"jest": "^29.7.0"
+"jest-environment-jsdom": "^29.7.0"
+"postcss": "^8.4.38"
+"tailwindcss": "^3.4.4"
+"ts-jest": "^29.2.5"
+"ts-jest-mock-import-meta": "^1.2.1"
+"typescript": "^5.2.2"
+"vite": "^5.3.1"
+"vue-tsc": "^2.0.21"
+```
+
+### Backend
+
+#### Dependencies
+
+```
+"@types/express": "^4.17.21"
+"@types/jest": "^29.5.14"
+"@types/morgan": "^1.9.9"
+"@types/node": "^20.10.5"
+"@types/uuid": "^10.0.0"
+"express": "^4.19.2"
+"morgan": "1.10.0"
+"redis": "^4.6.14"
+"socket.io": "4.7.5"
+"uuid": "^10.0.0"
+```
+
+#### devDependencies
+
+```
+"jest": "^29.7.0"
+"nodemon": "^3.1.4"
+"ts-jest": "^29.2.5"
+"ts-node": "^10.9.2"
+"tsconfig-paths": "^4.2.0"
+"typescript": "^5.2.2"
+```
 
 ## Portfolio Link
 
@@ -41,13 +94,25 @@ This repository is an application made with vue and socket io. It is a game wher
 
 https://github.com/user-attachments/assets/85799435-bcea-4f6f-9a45-2db9fb6ea56b
 
+## Testing
+
+### Frontend
+
+1. Join to `pinturillo-vue` folder
+2. Execute: `yarn test` or `npm test`
+
+### Backend
+
+1. Join to `pinturillo-api` folder
+2. Execute: `yarn test` or `npm test`
+
 ## Documentation APP
 
 ### **Version**
 
 ```ts
 APP VERSION: 1.0.0
-README UPDATED: 21/07/2024
+README UPDATED: 09/01/2025
 AUTHOR: Diego Libonati
 ```
 

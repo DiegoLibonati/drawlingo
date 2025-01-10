@@ -1,13 +1,17 @@
 <script setup lang="ts">
-import SectionPlayersScore from "@/containers/ScorePage/sections/SectionPlayersScore.vue";
+import { onBeforeUnmount, onMounted } from "vue";
+import { useRouter } from "vue-router";
+
 import { Room } from "@/entities/entities";
 import { EVENTS_SOCKET_SERVER } from "@/entities/enums";
+
 import MainLayout from "@/layouts/MainLayout/MainLayout.vue";
+
+import SectionPlayersScore from "@/containers/ScorePage/Sections/SectionPlayersScore.vue";
+
 import socket from "@/socket";
 import { useAlertStore } from "@/stores/alert/alert";
 import { useRoomStore } from "@/stores/room/room";
-import { onBeforeUnmount, onMounted } from "vue";
-import { useRouter } from "vue-router";
 
 const router = useRouter();
 

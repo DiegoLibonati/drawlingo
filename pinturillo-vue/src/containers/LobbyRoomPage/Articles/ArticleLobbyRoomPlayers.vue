@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import CardPlayerRoomLobby from "@/components/Cards/CardPlayerRoomLobby/CardPlayerRoomLobby.vue";
+
 import { useRoomStore } from "@/stores/room/room";
 
 const roomStore = useRoomStore();

@@ -1,16 +1,6 @@
 import { createApp } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
 import { createPinia } from "pinia";
-
-import App from "@/App.vue";
-import HomePage from "@/pages/HomePage/HomePage.vue";
-import LobbyPage from "@/pages/LobbyPage/LobbyPage.vue";
-import LobbyRoomPage from "@/pages/LobbyRoomPage/LobbyRoomPage.vue";
-import CreateRoomPage from "@/pages/CreateRoomPage/CreateRoomPage.vue";
-import LoginPrivateRoomPage from "@/pages/LoginPrivateRoomPage/LoginPrivateRoomPage.vue";
-import { useUserStore } from "./stores/user/user";
-import { useSessionStorage } from "./hooks/useSessionStorage";
-import { User } from "./entities/entities";
 import {
   FaBug,
   FaCrown,
@@ -18,8 +8,22 @@ import {
   FaInfo,
 } from "oh-vue-icons/icons";
 import { OhVueIcon, addIcons } from "oh-vue-icons";
-import GamePage from "./pages/GamePage/GamePage.vue";
-import ScorePage from "./pages/ScorePage/ScorePage.vue";
+
+import { User } from "@/entities/entities";
+
+import App from "@/App.vue";
+
+import HomePage from "@/pages/HomePage/HomePage.vue";
+import LobbyPage from "@/pages/LobbyPage/LobbyPage.vue";
+import LobbyRoomPage from "@/pages/LobbyRoomPage/LobbyRoomPage.vue";
+import CreateRoomPage from "@/pages/CreateRoomPage/CreateRoomPage.vue";
+import LoginPrivateRoomPage from "@/pages/LoginPrivateRoomPage/LoginPrivateRoomPage.vue";
+import GamePage from "@/pages/GamePage/GamePage.vue";
+import ScorePage from "@/pages/ScorePage/ScorePage.vue";
+
+import { useSessionStorage } from "@/hooks/useSessionStorage";
+import { useUserStore } from "@/stores/user/user";
+
 import "@/style.css";
 
 addIcons(FaCrown);

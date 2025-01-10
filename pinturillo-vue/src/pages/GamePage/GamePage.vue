@@ -1,18 +1,19 @@
 <script setup lang="ts">
-import MainLayout from "@/layouts/MainLayout/MainLayout.vue";
-import SectionGame from "@/containers/GamePage/Sections/SectionGame.vue";
 import { onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { useRouter } from "vue-router";
+
+import { Room } from "@/entities/entities";
+import { EVENTS_SOCKET_CLIENT, EVENTS_SOCKET_SERVER } from "@/entities/enums";
+
+import MainLayout from "@/layouts/MainLayout/MainLayout.vue";
+
+import SectionGame from "@/containers/GamePage/Sections/SectionGame.vue";
+
 import socket from "@/socket";
 import { useRoomStore } from "@/stores/room/room";
-import { Room } from "@/entities/entities";
 import { useCanvasStore } from "@/stores/canvas/canvas";
-import { useRouter } from "vue-router";
 import { useUserStore } from "@/stores/user/user";
-import { EVENTS_SOCKET_CLIENT, EVENTS_SOCKET_SERVER } from "@/entities/enums";
 import { useAlertStore } from "@/stores/alert/alert";
-
-// TODO: LOGICA GAME
-// TODO: PAGINA RESULTADOS
 
 const timeout = ref<NodeJS.Timeout | null>(null);
 

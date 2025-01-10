@@ -1,9 +1,10 @@
 import { v4 as uuidv4 } from "uuid";
 
 import { CustomSocket, Message, Users } from "@src/entities/entities";
-import { getRedis } from "@src/redisClient";
-import { idLobby } from "@src/index";
 import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
+
+import { getRedis } from "@src/redisClient";
+import { idLobby } from "@src/constants/constants";
 
 interface SendMessageLobbyEventProps extends CustomSocket {
   message: string;

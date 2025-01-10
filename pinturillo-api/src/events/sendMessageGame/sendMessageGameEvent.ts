@@ -7,8 +7,9 @@ import {
   Rooms,
   Users,
 } from "@src/entities/entities";
-import { getRedis, setRedis } from "@src/redisClient";
 import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
+
+import { getRedis, setRedis } from "@src/redisClient";
 
 interface SendMessageGameEventProps extends CustomSocket {
   idRoom: string;

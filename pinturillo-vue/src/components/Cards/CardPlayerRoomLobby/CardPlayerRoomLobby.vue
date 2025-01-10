@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const props = defineProps<{
-  class?: string;
   username: string;
   isOwner: boolean;
+  class?: string;
 }>();
 </script>
 

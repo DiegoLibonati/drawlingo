@@ -1,7 +1,8 @@
 import { CustomSocket, Room, Rooms } from "@src/entities/entities";
 import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
+
 import { getRedis, setRedis } from "@src/redisClient";
-import { generateWordPlaceholder } from "@src/utills/utils";
+import { generateWordPlaceholder } from "@src/helpers/generateWordPlaceholder";
 
 interface WordSelectedGameEventProps extends CustomSocket {
   idRoom: string;

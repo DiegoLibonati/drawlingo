@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
-  modelValue: Float64Array;
+  modelValue: number;
   class?: string;
 }>();
 

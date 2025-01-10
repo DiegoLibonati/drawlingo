@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
+
 import {
   CountdownRoom,
   OptionsRoom,
@@ -7,12 +8,13 @@ import {
   SlotsRoom,
   TypeRoom,
 } from "@/entities/entities.d";
-import { useUserStore } from "@/stores/user/user";
+import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
 
 import ButtonSecondary from "@/components/Buttons/ButtonSecondary/ButtonSecondary.vue";
 import InputSecondary from "@/components/Inputs/InputSecondary/InputSecondary.vue";
+
 import socket from "@/socket";
-import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
+import { useUserStore } from "@/stores/user/user";
 import { useAlertStore } from "@/stores/alert/alert";
 
 type FormCreateRoom = {
@@ -92,6 +94,7 @@ onMounted(() => {
       ></InputSecondary>
 
       <select
+        id="typeRoom"
         class="w-full h-12 text-lg bg-secondary border-secondary border-[0.2rem] px-2 mt-2 rounded-lg outline-none text-white cursor-pointer transition-all focus:border-quaternary"
         v-model="form.type"
       >
@@ -109,6 +112,7 @@ onMounted(() => {
       ></InputSecondary>
 
       <select
+        id="slotsRoom"
         class="w-full h-12 text-lg bg-secondary border-secondary border-[0.2rem] px-2 mt-2 rounded-lg outline-none text-white cursor-pointer transition-all focus:border-quaternary"
         v-model="form.slots"
       >
@@ -117,6 +121,7 @@ onMounted(() => {
       </select>
 
       <select
+        id="totalRoundsRoom"
         class="w-full h-12 text-lg bg-secondary border-secondary border-[0.2rem] px-2 mt-2 rounded-lg outline-none text-white cursor-pointer transition-all focus:border-quaternary"
         v-model="form.totalRounds"
       >
@@ -126,6 +131,7 @@ onMounted(() => {
       </select>
 
       <select
+        id="countdown"
         class="w-full h-12 text-lg bg-secondary border-secondary border-[0.2rem] px-2 mt-2 rounded-lg outline-none text-white cursor-pointer transition-all focus:border-quaternary"
         v-model="form.countdown"
       >

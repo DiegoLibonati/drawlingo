@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import MessageChat from "@/components/Chats/MessageChat/MessageChat.vue";
-import FormChatLobby from "@/components/Forms/FormChatLobby/FormChatLobby.vue";
+import { onMounted, ref, onBeforeUnmount } from "vue";
+
 import { Message } from "@/entities/entities";
 import { EVENTS_SOCKET_SERVER } from "@/entities/enums";
+
+import MessageChat from "@/components/Chats/MessageChat/MessageChat.vue";
+import FormChatLobby from "@/components/Forms/FormChatLobby/FormChatLobby.vue";
+
 import socket from "@/socket";
 import { useUserStore } from "@/stores/user/user";
-import { onBeforeUnmount } from "vue";
-import { onMounted, ref } from "vue";
 
 const userStore = useUserStore();
 

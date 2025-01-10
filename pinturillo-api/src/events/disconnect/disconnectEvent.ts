@@ -6,9 +6,10 @@ import {
   Users,
 } from "@src/entities/entities";
 import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
-import { idLobby } from "@src/index";
+
 import { getRedis, setRedis } from "@src/redisClient";
-import { getRoomsAvailables } from "@src/utills/utils";
+import { getRoomsAvailables } from "@src/helpers/getRoomsAvailables";
+import { idLobby } from "@src/constants/constants";
 
 interface DisconnectEventProps extends CustomSocket {}
 

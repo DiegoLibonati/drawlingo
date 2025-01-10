@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import SectionLoginPrivateRoom from "@/containers/LoginPrivateRoomPage/Sections/SectionLoginPrivateRoom.vue";
-import { EVENTS_SOCKET_SERVER } from "@/entities/enums";
-import MainLayout from "@/layouts/MainLayout/MainLayout.vue";
-import socket from "@/socket";
-import { useAlertStore } from "@/stores/alert/alert";
 import { onBeforeUnmount, onMounted } from "vue";
 import { useRouter } from "vue-router";
+
+import { EVENTS_SOCKET_SERVER } from "@/entities/enums";
+
+import MainLayout from "@/layouts/MainLayout/MainLayout.vue";
+
+import SectionLoginPrivateRoom from "@/containers/LoginPrivateRoomPage/Sections/SectionLoginPrivateRoom.vue";
+
+import socket from "@/socket";
+import { useAlertStore } from "@/stores/alert/alert";
 
 const router = useRouter();
 

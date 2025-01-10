@@ -1,11 +1,14 @@
 <script setup lang="ts">
+import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
+
 import ButtonSecondary from "@/components/Buttons/ButtonSecondary/ButtonSecondary.vue";
+
+import ArticleLobbyRoomInformation from "@/containers/LobbyRoomPage/Articles/ArticleLobbyRoomInformation.vue";
+import ArticleLobbyRoomPlayers from "@/containers/LobbyRoomPage/Articles/ArticleLobbyRoomPlayers.vue";
+
+import socket from "@/socket";
 import { useUserStore } from "@/stores/user/user";
 import { useRoomStore } from "@/stores/room/room";
-import ArticleLobbyRoomInformation from "../Articles/ArticleLobbyRoomInformation.vue";
-import ArticleLobbyRoomPlayers from "../Articles/ArticleLobbyRoomPlayers.vue";
-import socket from "@/socket";
-import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
 
 const roomStore = useRoomStore();
 const userStore = useUserStore();
@@ -25,7 +28,7 @@ const handleStartGame = () => {
       :class="[
         `mt-2 p-2 ${
           roomStore.playersLength <= 1
-            ? 'cursor-not-allowed '
+            ? 'cursor-not-allowed'
             : 'cursor-pointer'
         }`,
       ]"

@@ -1,3 +1,5 @@
+export const idLobby = "lobby_room";
+
 export const WORDS = [
   "ARBOL",
   "CAMINO",

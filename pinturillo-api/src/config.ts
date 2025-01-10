@@ -1,17 +1,6 @@
-type Configs = {
-  API: {
-    PORT: number;
-  };
-  REDIS: {
-    HOST: string;
-    PORT: number;
-  };
-  CLIENT: {
-    URL: string;
-  };
-};
+import { Config } from "@src/entities/entities";
 
-export const configs: Configs = {
+export const config: Config = {
   API: {
     PORT: Number(process.env.PORT) || 5000,
   },

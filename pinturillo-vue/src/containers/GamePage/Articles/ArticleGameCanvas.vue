@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { onMounted } from "vue";
+
 import BoardCanvas from "@/components/Board/BoardCanvas/BoardCanvas.vue";
 import BoardSelectingWord from "@/components/Board/BoardSelectingWord/BoardSelectingWord.vue";
 import BoardSelectWord from "@/components/Board/BoardSelectWord/BoardSelectWord.vue";
+
 import { useRoomStore } from "@/stores/room/room";
 import { useUserStore } from "@/stores/user/user";
-import { onMounted } from "vue";
 
 const userStore = useUserStore();
 const roomStore = useRoomStore();

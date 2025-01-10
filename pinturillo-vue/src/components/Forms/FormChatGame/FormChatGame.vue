@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import { ref } from "vue";
+
+import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
+
 import ButtonSecondary from "@/components/Buttons/ButtonSecondary/ButtonSecondary.vue";
 import InputSecondary from "@/components/Inputs/InputSecondary/InputSecondary.vue";
-import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
+
 import socket from "@/socket";
 import { useRoomStore } from "@/stores/room/room";
-import { ref } from "vue";
 
 type FormChatGame = {
   message: string;

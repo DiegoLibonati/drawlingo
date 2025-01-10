@@ -1,5 +1,6 @@
 import { CustomSocket, Rooms } from "@src/entities/entities";
 import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
+
 import { getRedis } from "@src/redisClient";
 
 interface LoginPrivateRoomEventProps extends CustomSocket {

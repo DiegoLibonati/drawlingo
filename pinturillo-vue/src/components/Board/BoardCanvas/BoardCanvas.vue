@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { useCanvasStore } from "@/stores/canvas/canvas";
 import { onBeforeUnmount, onMounted, ref, VNodeRef } from "vue";
-import BoardToolBar from "../BoardToolBar/BoardToolBar.vue";
+
+import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
+
+import BoardToolBar from "@/components/Board/BoardToolBar/BoardToolBar.vue";
+
+import socket from "@/socket";
+import { useCanvasStore } from "@/stores/canvas/canvas";
 import { useRoomStore } from "@/stores/room/room";
 import { useUserStore } from "@/stores/user/user";
-import socket from "@/socket";
-import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
 
 const userStore = useUserStore();
 const roomStore = useRoomStore();
@@ -118,6 +121,7 @@ onBeforeUnmount(() => {
         `flex flex-col items-center justify-start w-full h-32  p-2 rounded-tr-lg rounded-tl-lg`,
         roomStore.currentPlayerGuessed ? 'bg-green-400' : 'bg-secondary',
       ]"
+      data-testid="word-container"
     >
       <div class="flex relative items-center justify-center w-full h-full">
         <h2 class="text-2xl font-semibold text-white">

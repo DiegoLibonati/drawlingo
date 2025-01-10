@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { User } from "@/entities/entities";
-import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
-import socket from "@/socket";
 import { ref, watchEffect } from "vue";
 import { useRouter } from "vue-router";
+
+import { User } from "@/entities/entities";
+import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
+
+import socket from "@/socket";
 
 const slots = ref<Record<string, number[]>>({});
 const router = useRouter();
@@ -59,16 +61,19 @@ watchEffect(() => {
     <div class="flex flex-row mt-2 self-end">
       <div
         v-for="(outSlot, index) in slots.outSlots"
-        :class="['w-4 h-4 bg-tertiary rounded-lg', index !== 0 ? 'ml-2' : '']"
-        :key="outSlot"
+        :class="[
+          'w-4 h-4 bg-tertiary rounded-lg outSlot',
+          index !== 0 ? 'ml-2' : '',
+        ]"
+        :key="`${outSlot}-${index}`"
       ></div>
       <div
         v-for="(availableSlot, index) in slots.availableSlots"
         :class="[
-          'w-4 h-4 bg-quaternary rounded-lg',
+          'w-4 h-4 bg-quaternary rounded-lg availableSlot',
           slots.outSlots.length !== 0 ? 'ml-2' : index !== 0 ? 'ml-2' : '',
         ]"
-        :key="availableSlot"
+        :key="`${availableSlot}-${index}`"
       ></div>
     </div>
   </div>

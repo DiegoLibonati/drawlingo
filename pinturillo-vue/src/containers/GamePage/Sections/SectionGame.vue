@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import ArticleGamePlayers from "../Articles/ArticleGamePlayers.vue";
-import ArticleGameCanvas from "../Articles/ArticleGameCanvas.vue";
-import ArticleGameChat from "../Articles/ArticleGameChat.vue";
-import ArticleGameInformation from "../Articles/ArticleGameInformation.vue";
+import ArticleGamePlayers from "@/containers/GamePage/Articles/ArticleGamePlayers.vue";
+import ArticleGameCanvas from "@/containers/GamePage/Articles/ArticleGameCanvas.vue";
+import ArticleGameChat from "@/containers/GamePage/Articles/ArticleGameChat.vue";
+import ArticleGameInformation from "@/containers/GamePage/Articles/ArticleGameInformation.vue";
 </script>
 
 <template>

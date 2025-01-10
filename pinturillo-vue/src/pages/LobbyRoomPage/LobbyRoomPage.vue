@@ -1,12 +1,16 @@
 <script setup lang="ts">
-import MainLayout from "@/layouts/MainLayout/MainLayout.vue";
 import { onBeforeUnmount, onMounted } from "vue";
-import socket from "@/socket";
 import { useRoute, useRouter } from "vue-router";
+
 import { Room } from "@/entities/entities";
-import { useRoomStore } from "@/stores/room/room";
-import SectionLobbyRoom from "@/containers/LobbyRoomPage/Sections/SectionLobbyRoom.vue";
 import { EVENTS_SOCKET_CLIENT, EVENTS_SOCKET_SERVER } from "@/entities/enums";
+
+import MainLayout from "@/layouts/MainLayout/MainLayout.vue";
+
+import SectionLobbyRoom from "@/containers/LobbyRoomPage/Sections/SectionLobbyRoom.vue";
+
+import socket from "@/socket";
+import { useRoomStore } from "@/stores/room/room";
 import { useAlertStore } from "@/stores/alert/alert";
 
 const route = useRoute();

@@ -1,8 +1,8 @@
-import { Alert } from "@/entities/entities";
 import { defineStore, acceptHMRUpdate } from "pinia";
 
-export const useAlertStore = defineStore({
-  id: "alert",
+import { Alert } from "@/entities/entities";
+
+export const useAlertStore = defineStore("alert", {
   state: (): Alert => ({
     type: "",
     message: "",

@@ -7,7 +7,9 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(logger("dev"));
-app.use((req, res) => {
+
+// Routes
+app.use((_, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.status(404).json({ message: "Route not found" });
 });

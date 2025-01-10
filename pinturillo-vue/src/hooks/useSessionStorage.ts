@@ -21,8 +21,8 @@ export function useSessionStorage(): UseSessionStorage {
   };
 
   return {
-    handleSetItem,
-    handleGetItem,
-    handleRemoveItem,
+    handleSetItem: handleSetItem,
+    handleGetItem: handleGetItem,
+    handleRemoveItem: handleRemoveItem,
   };
 }

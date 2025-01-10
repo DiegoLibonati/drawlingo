@@ -8,10 +8,11 @@ import {
   Rooms,
   Users,
 } from "@src/entities/entities";
-import { getRedis, setRedis } from "@src/redisClient";
-import { getRoomsAvailables } from "@src/utills/utils";
 import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
-import { idLobby } from "@src/index";
+
+import { getRedis, setRedis } from "@src/redisClient";
+import { getRoomsAvailables } from "@src/helpers/getRoomsAvailables";
+import { idLobby } from "@src/constants/constants";
 
 interface CreateRoomEventProps extends CustomSocket {
   optionsRoom: OptionsRoom;

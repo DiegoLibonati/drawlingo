@@ -1,9 +1,10 @@
-import { Player, Room } from "@/entities/entities";
 import { defineStore, acceptHMRUpdate } from "pinia";
-import { useUserStore } from "../user/user";
 
-export const useRoomStore = defineStore({
-  id: "room",
+import { Player, Room } from "@/entities/entities";
+
+import { useUserStore } from "@/stores/user/user";
+
+export const useRoomStore = defineStore("room", {
   state: (): Room => ({
     id: "",
     configuration: {

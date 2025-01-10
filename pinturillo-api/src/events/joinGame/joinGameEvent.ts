@@ -1,8 +1,10 @@
 import { CustomSocket, Lobby, Rooms } from "@src/entities/entities";
 import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
-import { idLobby } from "@src/index";
+
 import { getRedis, setRedis } from "@src/redisClient";
-import { getFourRandomWords, getRoomsAvailables } from "@src/utills/utils";
+import { getFourRandomWords } from "@src/helpers/getFourRandomWords";
+import { getRoomsAvailables } from "@src/helpers/getRoomsAvailables";
+import { idLobby, WORDS } from "@src/constants/constants";
 
 interface JoinGameEventProps extends CustomSocket {
   idRoom: string;
@@ -16,7 +18,7 @@ export const JoinGameEvent = async ({ io, idRoom }: JoinGameEventProps) => {
   const playerToPaint = room.players[0];
 
   room.started = true;
-  room.wordToGuess.wordsToChoose = await getFourRandomWords();
+  room.wordToGuess.wordsToChoose = await getFourRandomWords(WORDS);
 
   playerToPaint.choosingAWord = true;
   playerToPaint.isPaiting = true;

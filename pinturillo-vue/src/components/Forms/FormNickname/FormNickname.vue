@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import socket from "@/socket";
+import { ref } from "vue";
+
+import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
 
 import ButtonGridTertiaryFull from "@/components/Buttons/ButtonGridTertiaryFull/ButtonGridTertiaryFull.vue";
 import ButtonGridTertiary from "@/components/Buttons/ButtonGridTertiary/ButtonGridTertiary.vue";
 import InputTransparent from "@/components/Inputs/InputTransparent/InputTransparent.vue";
-import { ref } from "vue";
-import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
+
+import socket from "@/socket";
 import { useAlertStore } from "@/stores/alert/alert";
 
 type FormNickname = {
@@ -64,13 +66,20 @@ const handleRedirect = async (path: string): Promise<void> => {
       v-model="form.nickname"
     ></InputTransparent>
     <div class="grid grid-cols-2 gap-2 w-full mt-4">
-      <ButtonGridTertiary :click="() => handleRedirect('/lobby')">
+      <ButtonGridTertiary
+        id="btn-lobby"
+        :click="() => handleRedirect('/lobby')"
+      >
         LOBBY
       </ButtonGridTertiary>
-      <ButtonGridTertiary :click="() => handleRedirect('/room/create')">
+      <ButtonGridTertiary
+        id="btn-create-room"
+        :click="() => handleRedirect('/room/create')"
+      >
         CREATE ROOM
       </ButtonGridTertiary>
       <ButtonGridTertiaryFull
+        id="btn-join-to-private-room"
         :click="() => handleRedirect('/room/login/private')"
         >JOIN TO PRIVATE ROOM</ButtonGridTertiaryFull
       >
