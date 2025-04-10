@@ -118,8 +118,6 @@ AUTHOR: Diego Libonati
 
 ### **Env Keys**
 
-NOTE: You must create the .env inside the folder filemanager-app
-
 1. `VITE_API_URL`: This is the link to the application if you are in development leave it as localhost
 2. `PORT`: It is the application port
 3. `CLIENT_URL`: It is the link to the client side application.
