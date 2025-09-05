@@ -4,7 +4,7 @@ services:
   pinturillo-api:
     build:
       context: ./pinturillo-api
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.development
     volumes:
       - ./pinturillo-api/src:/home/app/src
     ports:
@@ -19,7 +19,7 @@ services:
   pinturillo-vue:
     build:
       context: ./pinturillo-vue
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.development
     volumes:
       - ./pinturillo-vue/src:/home/app/src
       - /home/app/src/node_modules

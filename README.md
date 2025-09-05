@@ -30,8 +30,6 @@ This repository is an application made with vue and socket io. It is a game wher
 #### Dependencies
 
 ```
-"@types/jest": "^29.5.14"
-"@types/node": "^20.14.8"
 "oh-vue-icons": "^1.0.0-rc3"
 "pinia": "^2.1.7"
 "socket.io-client": "^4.7.5"
@@ -42,6 +40,8 @@ This repository is an application made with vue and socket io. It is a game wher
 #### devDependencies
 
 ```
+"@types/jest": "^29.5.14"
+"@types/node": "^20.14.8"
 "@vitejs/plugin-vue": "^5.0.5"
 "@vue/compiler-sfc": "^3.5.13"
 "@vue/test-utils": "^2.4.6"
@@ -63,11 +63,6 @@ This repository is an application made with vue and socket io. It is a game wher
 #### Dependencies
 
 ```
-"@types/express": "^4.17.21"
-"@types/jest": "^29.5.14"
-"@types/morgan": "^1.9.9"
-"@types/node": "^20.10.5"
-"@types/uuid": "^10.0.0"
 "express": "^4.19.2"
 "morgan": "1.10.0"
 "redis": "^4.6.14"
@@ -78,6 +73,11 @@ This repository is an application made with vue and socket io. It is a game wher
 #### devDependencies
 
 ```
+"@types/express": "^4.17.21"
+"@types/jest": "^29.5.14"
+"@types/morgan": "^1.9.9"
+"@types/node": "^20.10.5"
+"@types/uuid": "^10.0.0"
 "jest": "^29.7.0"
 "nodemon": "^3.1.4"
 "ts-jest": "^29.2.5"
