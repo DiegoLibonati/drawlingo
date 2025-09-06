@@ -4,10 +4,10 @@
 
 1. Clone the repository with `git clone "repository link"`
 2. Join to `pinturillo-vue` folder and `pinturillo-api` folder and execute: `npm install` or `yarn install` in the terminal
-3. Go to the previous folder and execute: `docker-compose build --no-cache` in the terminal
-4. Once built, you must execute the command: `docker-compose up --force-recreate` in the terminal
+3. Go to the previous folder and execute: `docker-compose -f dev.docker-compose.yml build --no-cache` in the terminal
+4. Once built, you must execute the command: `docker-compose -f dev.docker-compose.yml up --force-recreate` in the terminal
 
-NOTE: You have to be standing in the folder containing the: `docker-compose.yml` and you need to install `Docker Desktop` if you are in Windows.
+NOTE: You have to be standing in the folder containing the: `dev.docker-compose.yml` and you need to install `Docker Desktop` if you are in Windows.
 
 ## Description
 
