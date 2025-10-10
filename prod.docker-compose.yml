@@ -1,0 +1,44 @@
+services:
+  pinturillo-api:
+    build:
+      context: ./pinturillo-api
+      dockerfile: Dockerfile.production
+    container_name: pinturillo-api
+    restart: always
+    env_file:
+      - ./pinturillo-api/.env
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis
+    networks:
+      - pinturillo-vue-network
+
+  pinturillo-vue:
+    build:
+      context: ./pinturillo-vue
+      dockerfile: Dockerfile.production
+    container_name: pinturillo-vue
+    restart: always
+    env_file:
+      - ./pinturillo-vue/.env
+    ports:
+      - "5173:80"
+    depends_on:
+      - redis
+      - pinturillo-api
+    networks:
+      - pinturillo-vue-network
+
+  redis:
+    image: redis:7
+    container_name: redis
+    restart: always
+    volumes:
+      - ./volumes/redis:/data
+    networks:
+      - pinturillo-vue-network
+
+networks:
+  pinturillo-vue-network:
+    driver: bridge

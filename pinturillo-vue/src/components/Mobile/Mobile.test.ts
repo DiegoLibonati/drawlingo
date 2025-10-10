@@ -1,8 +1,8 @@
 import { shallowMount } from "@vue/test-utils";
 
-import Mobile from "@/components/Mobile/Mobile.vue";
+import Mobile from "@src/components/Mobile/Mobile.vue";
 
-jest.mock("@/assets/images/vue.svg", () => "vue-svg.svg");
+jest.mock("@src/assets/images/vue.svg", () => "vue-svg.svg");
 
 describe("Mobile.vue", () => {
   describe("General Tests.", () => {

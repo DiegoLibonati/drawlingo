@@ -2,10 +2,10 @@
 import { ref, watchEffect } from "vue";
 import { useRouter } from "vue-router";
 
-import { User } from "@/entities/entities";
-import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
+import { User } from "@src/entities/entities";
+import { EVENTS_SOCKET_CLIENT } from "@src/entities/enums";
 
-import socket from "@/socket";
+import socket from "@src/socket";
 
 const slots = ref<Record<string, number[]>>({});
 const router = useRouter();

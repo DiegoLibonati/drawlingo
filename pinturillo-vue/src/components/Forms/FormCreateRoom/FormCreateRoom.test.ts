@@ -2,7 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createPinia, setActivePinia } from "pinia";
 
-import FormCreateRoom from "@/components/Forms/FormCreateRoom/FormCreateRoom.vue";
+import FormCreateRoom from "@src/components/Forms/FormCreateRoom/FormCreateRoom.vue";
 
 describe("FormCreateRoom.vue", () => {
   let pinia: ReturnType<typeof createPinia>;

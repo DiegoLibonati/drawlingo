@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 
-import socket from "@/socket";
+import socket from "@src/socket";
 
 const router = useRouter();
 
@@ -21,7 +21,7 @@ const handleRedirectHome = () => {
       Pinturillo
     </h2>
     <img
-      src="@/assets/images/vue.svg"
+      src="@src/assets/images/vue.svg"
       alt="VueJS logo"
       class="absolute -right-5 z-[5]"
     />

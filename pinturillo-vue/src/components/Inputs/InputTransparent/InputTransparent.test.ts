@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 
-import InputTransparent from "@/components/Inputs/InputTransparent/InputTransparent.vue";
+import InputTransparent from "@src/components/Inputs/InputTransparent/InputTransparent.vue";
 
 const props = {
   id: "asds",

@@ -2,7 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createPinia, setActivePinia } from "pinia";
 
-import FormChatGame from "@/components/Forms/FormChatGame/FormChatGame.vue";
+import FormChatGame from "@src/components/Forms/FormChatGame/FormChatGame.vue";
 
 describe("FormChatGame.vue", () => {
   let pinia: ReturnType<typeof createPinia>;

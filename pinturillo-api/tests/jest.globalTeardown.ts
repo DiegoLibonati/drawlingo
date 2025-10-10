@@ -1,17 +1,16 @@
 import { execSync } from "child_process";
 
-module.exports = async () => {
+export default async () => {
+  console.log("Stopping test redis container...");
   try {
-    console.log("Stopping Redis container...");
-
     execSync(
-      "docker-compose --env-file ../.env -f ../dev.docker-compose.yml down",
-      { stdio: "inherit" }
+      `docker-compose -f ../dev.docker-compose.yml down -v --remove-orphans`,
+      {
+        stdio: "inherit",
+      }
     );
-
     console.log("Redis container stopped!");
-  } catch (e) {
-    console.error("Error stopping Redis container:", e);
-    return e;
+  } catch (error) {
+    console.error("Error stopping redis container:", error);
   }
 };

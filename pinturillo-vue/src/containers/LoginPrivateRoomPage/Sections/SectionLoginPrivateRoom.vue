@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FormLoginPrivate from "@/components/Forms/FormLoginPrivate/FormLoginPrivate.vue";
+import FormLoginPrivate from "@src/components/Forms/FormLoginPrivate/FormLoginPrivate.vue";
 </script>
 
 <template>

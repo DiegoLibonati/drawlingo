@@ -2,7 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createRouter, createWebHistory, Router } from "vue-router";
 
-import SectionPlayersScore from "@/containers/ScorePage/Sections/SectionPlayersScore.vue";
+import SectionPlayersScore from "@src/containers/ScorePage/Sections/SectionPlayersScore.vue";
 
 describe("SectionPlayersScore.vue", () => {
   let router: Router;

@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 
-import MessageChat from "@/components/Chats/MessageChat/MessageChat.vue";
+import MessageChat from "@src/components/Chats/MessageChat/MessageChat.vue";
 
 const props = {
   username: "usercito",

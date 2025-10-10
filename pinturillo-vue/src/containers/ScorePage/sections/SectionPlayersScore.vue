@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 
-import ButtonSecondary from "@/components/Buttons/ButtonSecondary/ButtonSecondary.vue";
-import ArticleListPlayersScore from "@/containers/ScorePage/Articles/ArticleListPlayersScore.vue";
+import ButtonSecondary from "@src/components/Buttons/ButtonSecondary/ButtonSecondary.vue";
+import ArticleListPlayersScore from "@src/containers/ScorePage/Articles/ArticleListPlayersScore.vue";
 
-import socket from "@/socket";
+import socket from "@src/socket";
 
 const router = useRouter();
 

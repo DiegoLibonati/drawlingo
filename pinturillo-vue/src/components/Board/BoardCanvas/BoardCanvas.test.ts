@@ -2,15 +2,15 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createPinia, setActivePinia } from "pinia";
 
-import BoardCanvas from "@/components/Board/BoardCanvas/BoardCanvas.vue";
+import BoardCanvas from "@src/components/Board/BoardCanvas/BoardCanvas.vue";
 
-import { useRoomStore } from "@/stores/room/room";
-import { useUserStore } from "@/stores/user/user";
+import { useRoomStore } from "@src/stores/room/room";
+import { useUserStore } from "@src/stores/user/user";
 
-jest.mock("@/stores/room/room", () => ({
+jest.mock("@src/stores/room/room", () => ({
   useRoomStore: jest.fn(),
 }));
-jest.mock("@/stores/user/user", () => ({
+jest.mock("@src/stores/user/user", () => ({
   useUserStore: jest.fn(),
 }));
 
@@ -27,7 +27,7 @@ describe("BoardCanvas.vue", () => {
       id: "a1",
       username: "a",
       actualRoom: "a2",
-      isPaiting: false,
+      isPainting: false,
       alreadyPainted: false,
       choosingAWord: false,
       score: 10,
@@ -81,7 +81,7 @@ describe("BoardCanvas.vue", () => {
       id: "a1",
       username: "a",
       actualRoom: "a2",
-      isPaiting: false,
+      isPainting: false,
       alreadyPainted: false,
       choosingAWord: false,
       score: 10,
@@ -180,7 +180,7 @@ describe("BoardCanvas.vue", () => {
       id: idUser,
       username: "a",
       actualRoom: "a2",
-      isPaiting: false,
+      isPainting: false,
       alreadyPainted: false,
       choosingAWord: false,
       score: 10,
@@ -240,7 +240,7 @@ describe("BoardCanvas.vue", () => {
       id: "pepe",
       username: "a",
       actualRoom: "a2",
-      isPaiting: false,
+      isPainting: false,
       alreadyPainted: false,
       choosingAWord: false,
       score: 10,

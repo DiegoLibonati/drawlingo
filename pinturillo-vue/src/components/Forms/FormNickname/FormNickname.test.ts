@@ -2,7 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createPinia, setActivePinia } from "pinia";
 
-import FormNickname from "@/components/Forms/FormNickname/FormNickname.vue";
+import FormNickname from "@src/components/Forms/FormNickname/FormNickname.vue";
 
 describe("FormNickname.vue", () => {
   let pinia: ReturnType<typeof createPinia>;

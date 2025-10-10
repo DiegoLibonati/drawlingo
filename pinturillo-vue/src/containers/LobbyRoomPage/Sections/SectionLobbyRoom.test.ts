@@ -2,15 +2,15 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createPinia, setActivePinia } from "pinia";
 
-import SectionLobbyRoom from "@/containers/LobbyRoomPage/Sections/SectionLobbyRoom.vue";
+import SectionLobbyRoom from "@src/containers/LobbyRoomPage/Sections/SectionLobbyRoom.vue";
 
-import { useRoomStore } from "@/stores/room/room";
-import { useUserStore } from "@/stores/user/user";
+import { useRoomStore } from "@src/stores/room/room";
+import { useUserStore } from "@src/stores/user/user";
 
-jest.mock("@/stores/user/user", () => ({
+jest.mock("@src/stores/user/user", () => ({
   useUserStore: jest.fn(),
 }));
-jest.mock("@/stores/room/room", () => ({
+jest.mock("@src/stores/room/room", () => ({
   useRoomStore: jest.fn(),
 }));
 

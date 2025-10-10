@@ -2,11 +2,11 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createPinia, setActivePinia } from "pinia";
 
-import BoardSelectWord from "@/components/Board/BoardSelectWord/BoardSelectWord.vue";
+import BoardSelectWord from "@src/components/Board/BoardSelectWord/BoardSelectWord.vue";
 
-import { useRoomStore } from "@/stores/room/room";
+import { useRoomStore } from "@src/stores/room/room";
 
-jest.mock("@/stores/room/room", () => ({
+jest.mock("@src/stores/room/room", () => ({
   useRoomStore: jest.fn(),
 }));
 

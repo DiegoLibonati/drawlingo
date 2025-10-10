@@ -2,7 +2,7 @@
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 
-import Logo from "@/components/Logo/Logo.vue";
+import Logo from "@src/components/Logo/Logo.vue";
 
 const route = useRoute();
 

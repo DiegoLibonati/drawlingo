@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 
-import SectionLobbyChat from "@/containers/LobbyPage/Sections/SectionLobbyChat.vue";
+import SectionLobbyChat from "@src/containers/LobbyPage/Sections/SectionLobbyChat.vue";
 
 describe("SectionLobbyChat.vue", () => {
   describe("General Tests.", () => {

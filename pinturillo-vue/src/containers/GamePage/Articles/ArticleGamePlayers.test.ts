@@ -2,17 +2,17 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createPinia, setActivePinia } from "pinia";
 
-import { Player } from "@/entities/entities";
+import { Player } from "@src/entities/entities";
 
-import ArticleGamePlayers from "@/containers/GamePage/Articles/ArticleGamePlayers.vue";
+import ArticleGamePlayers from "@src/containers/GamePage/Articles/ArticleGamePlayers.vue";
 
-import { useRoomStore } from "@/stores/room/room";
+import { useRoomStore } from "@src/stores/room/room";
 
-jest.mock("@/assets/images/pintando.png", () => "mock-pintando.png");
-jest.mock("@/assets/images/pinto.png", () => "mock-pinto.png");
-jest.mock("@/assets/images/star.png", () => "mock-star.png");
+jest.mock("@src/assets/images/pintando.png", () => "mock-pintando.png");
+jest.mock("@src/assets/images/pinto.png", () => "mock-pinto.png");
+jest.mock("@src/assets/images/star.png", () => "mock-star.png");
 
-jest.mock("@/stores/room/room", () => ({
+jest.mock("@src/stores/room/room", () => ({
   useRoomStore: jest.fn(),
 }));
 
@@ -32,7 +32,7 @@ describe("ArticleGamePlayers.vue", () => {
         alreadyPainted: false,
         choosingAWord: false,
         guessed: false,
-        isPaiting: false,
+        isPainting: false,
         score: 10,
         username: "pepe",
       },

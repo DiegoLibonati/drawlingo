@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 
-import InputColor from "@/components/Inputs/InputColor/InputColor.vue";
+import InputColor from "@src/components/Inputs/InputColor/InputColor.vue";
 
 const props = {
   modelValue: "#ffffff",

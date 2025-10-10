@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 
-import SectionLoginPrivateRoom from "@/containers/LoginPrivateRoomPage/Sections/SectionLoginPrivateRoom.vue";
+import SectionLoginPrivateRoom from "@src/containers/LoginPrivateRoomPage/Sections/SectionLoginPrivateRoom.vue";
 
 describe("SectionLoginPrivateRoom.vue", () => {
   describe("General Tests.", () => {

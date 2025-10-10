@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Player } from "@/entities/entities";
+import { Player } from "@src/entities/entities";
 
 const props = defineProps<{
   position: number;

@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 
-import ButtonPrimary from "@/components/Buttons/ButtonPrimary/ButtonPrimary.vue";
+import ButtonPrimary from "@src/components/Buttons/ButtonPrimary/ButtonPrimary.vue";
 
 const props = {
   mockClick: jest.fn(),

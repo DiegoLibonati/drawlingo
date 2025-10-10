@@ -1,6 +1,6 @@
 import { defineStore, acceptHMRUpdate } from "pinia";
 
-import { Canvas } from "@/entities/entities";
+import { Canvas } from "@src/entities/entities";
 
 export const useCanvasStore = defineStore("canvas", {
   state: (): Canvas => ({

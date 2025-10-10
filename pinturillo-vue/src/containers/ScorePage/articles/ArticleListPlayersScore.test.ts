@@ -1,14 +1,14 @@
 import { shallowMount } from "@vue/test-utils";
 
-import { Player } from "@/entities/entities";
+import { Player } from "@src/entities/entities";
 
 import { createPinia, setActivePinia } from "pinia";
 
-import ArticleListPlayersScore from "@/containers/ScorePage/Articles/ArticleListPlayersScore.vue";
+import ArticleListPlayersScore from "@src/containers/ScorePage/Articles/ArticleListPlayersScore.vue";
 
-import { useRoomStore } from "@/stores/room/room";
+import { useRoomStore } from "@src/stores/room/room";
 
-jest.mock("@/stores/room/room", () => ({
+jest.mock("@src/stores/room/room", () => ({
   useRoomStore: jest.fn(),
 }));
 
@@ -29,7 +29,7 @@ describe("ArticleListPlayersScore.vue", () => {
         alreadyPainted: false,
         choosingAWord: false,
         guessed: false,
-        isPaiting: false,
+        isPainting: false,
         score: 10,
       },
     ];

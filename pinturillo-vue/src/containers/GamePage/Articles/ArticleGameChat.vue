@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ChatGame from "@/components/Chats/ChatGame/ChatGame.vue";
+import ChatGame from "@src/components/Chats/ChatGame/ChatGame.vue";
 </script>
 
 <template>

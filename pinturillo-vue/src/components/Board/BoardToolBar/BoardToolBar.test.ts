@@ -2,7 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createPinia, setActivePinia } from "pinia";
 
-import BoardToolBar from "@/components/Board/BoardToolBar/BoardToolBar.vue";
+import BoardToolBar from "@src/components/Board/BoardToolBar/BoardToolBar.vue";
 
 describe("BoardToolBar.vue", () => {
   let pinia: ReturnType<typeof createPinia>;

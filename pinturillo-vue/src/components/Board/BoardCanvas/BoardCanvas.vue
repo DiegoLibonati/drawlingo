@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref, VNodeRef } from "vue";
 
-import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
+import { EVENTS_SOCKET_CLIENT } from "@src/entities/enums";
 
-import BoardToolBar from "@/components/Board/BoardToolBar/BoardToolBar.vue";
+import BoardToolBar from "@src/components/Board/BoardToolBar/BoardToolBar.vue";
 
-import socket from "@/socket";
-import { useCanvasStore } from "@/stores/canvas/canvas";
-import { useRoomStore } from "@/stores/room/room";
-import { useUserStore } from "@/stores/user/user";
+import socket from "@src/socket";
+import { useCanvasStore } from "@src/stores/canvas/canvas";
+import { useRoomStore } from "@src/stores/room/room";
+import { useUserStore } from "@src/stores/user/user";
 
 const userStore = useUserStore();
 const roomStore = useRoomStore();

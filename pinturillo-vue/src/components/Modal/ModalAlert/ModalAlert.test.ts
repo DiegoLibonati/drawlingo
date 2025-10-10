@@ -2,11 +2,11 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createPinia, setActivePinia } from "pinia";
 
-import ModalAlert from "@/components/Modal/ModalAlert/ModalAlert.vue";
+import ModalAlert from "@src/components/Modal/ModalAlert/ModalAlert.vue";
 
-import { useAlertStore } from "@/stores/alert/alert";
+import { useAlertStore } from "@src/stores/alert/alert";
 
-jest.mock("@/stores/alert/alert", () => ({
+jest.mock("@src/stores/alert/alert", () => ({
   useAlertStore: jest.fn(),
 }));
 

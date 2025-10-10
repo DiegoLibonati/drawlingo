@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ChatLobby from "@/components/Chats/ChatLobby/ChatLobby.vue";
+import ChatLobby from "@src/components/Chats/ChatLobby/ChatLobby.vue";
 </script>
 
 <template>

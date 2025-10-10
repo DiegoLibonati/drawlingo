@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 
-import CardPlayerRoomLobby from "@/components/Cards/CardPlayerRoomLobby/CardPlayerRoomLobby.vue";
+import CardPlayerRoomLobby from "@src/components/Cards/CardPlayerRoomLobby/CardPlayerRoomLobby.vue";
 
 const props = {
   username: "pepe",

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
+import { EVENTS_SOCKET_CLIENT } from "@src/entities/enums";
 
-import ButtonGridTertiaryFull from "@/components/Buttons/ButtonGridTertiaryFull/ButtonGridTertiaryFull.vue";
-import ButtonGridTertiary from "@/components/Buttons/ButtonGridTertiary/ButtonGridTertiary.vue";
-import InputTransparent from "@/components/Inputs/InputTransparent/InputTransparent.vue";
+import ButtonGridTertiaryFull from "@src/components/Buttons/ButtonGridTertiaryFull/ButtonGridTertiaryFull.vue";
+import ButtonGridTertiary from "@src/components/Buttons/ButtonGridTertiary/ButtonGridTertiary.vue";
+import InputTransparent from "@src/components/Inputs/InputTransparent/InputTransparent.vue";
 
-import socket from "@/socket";
-import { useAlertStore } from "@/stores/alert/alert";
+import socket from "@src/socket";
+import { useAlertStore } from "@src/stores/alert/alert";
 
 type FormNickname = {
   nickname: string;

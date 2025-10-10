@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 
-import InputSecondary from "@/components/Inputs/InputSecondary/InputSecondary.vue";
+import InputSecondary from "@src/components/Inputs/InputSecondary/InputSecondary.vue";
 
 const props = {
   id: "asds",

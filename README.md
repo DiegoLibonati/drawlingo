@@ -1,5 +1,11 @@
 # Pinturillo Vue NodeJS
 
+## Educational Purpose
+
+This project was created primarily for **educational and learning purposes**.  
+While it is well-structured and could technically be used in production, it is **not intended for commercialization**.  
+The main goal is to explore and demonstrate best practices, patterns, and technologies in software development.
+
 ## Getting Started
 
 1. Clone the repository with `git clone "repository link"`
@@ -15,13 +21,29 @@ This repository is an application made with vue and socket io. It is a game wher
 
 ## Technologies used
 
-1. NodeJS
+FrontEnd:
+
+1. VueJS 3
 2. Typescript
-3. VueJS 3
-4. Tailwind CSS
-5. Docker
-6. Redis
-7. Socket IO
+3. TailwindCSS
+4. CSS3
+5. HTML5
+6. Vite
+
+BackEnd:
+
+1. NodeJS
+2. Socket IO
+3. Typescript
+
+Deploy:
+
+1. Docker
+2. Nginx
+
+Database Temporal:
+
+1. Redis
 
 ## Libraries used
 
@@ -34,15 +56,15 @@ This repository is an application made with vue and socket io. It is a game wher
 "pinia": "^2.1.7"
 "socket.io-client": "^4.7.5"
 "vue": "^3.4.29"
-"vue-router": "^4.4.0"
+"vue-router": "^4.5.1"
 ```
 
 #### devDependencies
 
 ```
-"@types/jest": "^29.5.14"
-"@types/node": "^20.14.8"
-"@vitejs/plugin-vue": "^5.0.5"
+"@types/jest": "^29.5.13"
+"@types/node": "^20.10.6"
+"@vitejs/plugin-vue": "^6.0.1"
 "@vue/compiler-sfc": "^3.5.13"
 "@vue/test-utils": "^2.4.6"
 "@vue/vue3-jest": "^29.2.6"
@@ -53,9 +75,9 @@ This repository is an application made with vue and socket io. It is a game wher
 "tailwindcss": "^3.4.4"
 "ts-jest": "^29.2.5"
 "ts-jest-mock-import-meta": "^1.2.1"
+"ts-node": "^10.9.2"
 "typescript": "^5.2.2"
-"vite": "^5.3.1"
-"vue-tsc": "^2.0.21"
+"vite": "^7.1.9"
 ```
 
 ### Backend
@@ -64,24 +86,26 @@ This repository is an application made with vue and socket io. It is a game wher
 
 ```
 "express": "^4.19.2"
-"morgan": "1.10.0"
+"morgan": "^1.10.1"
 "redis": "^4.6.14"
-"socket.io": "4.7.5"
+"socket.io": "^4.8.1"
 "uuid": "^10.0.0"
 ```
 
 #### devDependencies
 
 ```
-"@types/express": "^4.17.21"
+"@types/express": "^5.0.0"
 "@types/jest": "^29.5.14"
 "@types/morgan": "^1.9.9"
 "@types/node": "^20.10.5"
 "@types/uuid": "^10.0.0"
 "jest": "^29.7.0"
 "nodemon": "^3.1.4"
+"supertest": "^7.0.0"
 "ts-jest": "^29.2.5"
 "ts-node": "^10.9.2"
+"tsc-alias": "^1.8.16"
 "tsconfig-paths": "^4.2.0"
 "typescript": "^5.2.2"
 ```
@@ -112,7 +136,7 @@ https://github.com/user-attachments/assets/85799435-bcea-4f6f-9a45-2db9fb6ea56b
 
 ```ts
 APP VERSION: 1.0.0
-README UPDATED: 09/01/2025
+README UPDATED: 09/10/2025
 AUTHOR: Diego Libonati
 ```
 
@@ -123,6 +147,8 @@ AUTHOR: Diego Libonati
 3. `CLIENT_URL`: It is the link to the client side application.
 4. `REDIS_HOST`: Is the host name to connect to redis
 5. `REDIS_PORT`: Is the port to connect to redis
+6. `NODE_ENV` is the key to distinguish the environment in which the app is running.
+7. `BASE_URL` key refers to the URL where the app is hosted.
 
 ```ts
 # Frontend Envs
@@ -130,7 +156,11 @@ VITE_API_URL=http://localhost:5000
 
 # Backend Envs
 PORT=5000
+NODE_ENV=development
+BASE_URL=
+
 CLIENT_URL=http://localhost:5173
+
 REDIS_HOST=redis
 REDIS_PORT=6379
 ```
@@ -351,3 +381,7 @@ type CountdownRoom = 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90;
 ```
 
 ---
+
+## Known Issues
+
+1.  Backend tests.

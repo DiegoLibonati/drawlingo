@@ -61,7 +61,7 @@ export type Users = Record<string, User>;
 
 // **** Player In Game ****
 export type Player = User & {
-  isPaiting: boolean;
+  isPainting: boolean;
   alreadyPainted: boolean;
   choosingAWord: boolean;
   score: number;

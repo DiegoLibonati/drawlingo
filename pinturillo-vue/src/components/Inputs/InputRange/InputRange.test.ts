@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 
-import InputRange from "@/components/Inputs/InputRange/InputRange.vue";
+import InputRange from "@src/components/Inputs/InputRange/InputRange.vue";
 
 const props = {
   modelValue: 2,

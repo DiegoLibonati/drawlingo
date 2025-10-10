@@ -7,15 +7,15 @@ import {
   RoundsRoom,
   SlotsRoom,
   TypeRoom,
-} from "@/entities/entities.d";
-import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
+} from "@src/entities/entities.d";
+import { EVENTS_SOCKET_CLIENT } from "@src/entities/enums";
 
-import ButtonSecondary from "@/components/Buttons/ButtonSecondary/ButtonSecondary.vue";
-import InputSecondary from "@/components/Inputs/InputSecondary/InputSecondary.vue";
+import ButtonSecondary from "@src/components/Buttons/ButtonSecondary/ButtonSecondary.vue";
+import InputSecondary from "@src/components/Inputs/InputSecondary/InputSecondary.vue";
 
-import socket from "@/socket";
-import { useUserStore } from "@/stores/user/user";
-import { useAlertStore } from "@/stores/alert/alert";
+import socket from "@src/socket";
+import { useUserStore } from "@src/stores/user/user";
+import { useAlertStore } from "@src/stores/alert/alert";
 
 type FormCreateRoom = {
   name: string;

@@ -3,13 +3,13 @@ import { shallowMount } from "@vue/test-utils";
 import { createPinia, setActivePinia } from "pinia";
 import { createRouter, createWebHistory, Router } from "vue-router";
 
-import { Room } from "@/entities/entities";
+import { Room } from "@src/entities/entities";
 
-import SectionLobbyRooms from "@/containers/LobbyPage/Sections/SectionLobbyRooms.vue";
+import SectionLobbyRooms from "@src/containers/LobbyPage/Sections/SectionLobbyRooms.vue";
 
-import { useLobbyStore } from "@/stores/lobby/lobby";
+import { useLobbyStore } from "@src/stores/lobby/lobby";
 
-jest.mock("@/stores/lobby/lobby", () => ({
+jest.mock("@src/stores/lobby/lobby", () => ({
   useLobbyStore: jest.fn(),
 }));
 
@@ -104,7 +104,7 @@ describe("SectionLobbyRooms.vue", () => {
             alreadyPainted: false,
             choosingAWord: false,
             guessed: false,
-            isPaiting: false,
+            isPainting: false,
             score: 10,
           },
         ],

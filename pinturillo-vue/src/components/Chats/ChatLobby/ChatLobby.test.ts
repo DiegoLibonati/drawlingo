@@ -2,11 +2,11 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createPinia, setActivePinia } from "pinia";
 
-import ChatLobby from "@/components/Chats/ChatLobby/ChatLobby.vue";
+import ChatLobby from "@src/components/Chats/ChatLobby/ChatLobby.vue";
 
-import { useUserStore } from "@/stores/user/user";
+import { useUserStore } from "@src/stores/user/user";
 
-jest.mock("@/stores/user/user", () => ({
+jest.mock("@src/stores/user/user", () => ({
   useUserStore: jest.fn(),
 }));
 

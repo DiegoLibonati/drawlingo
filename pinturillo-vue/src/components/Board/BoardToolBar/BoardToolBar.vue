@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { ref, watchEffect } from "vue";
 
-import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
+import { EVENTS_SOCKET_CLIENT } from "@src/entities/enums";
 
-import ButtonSecondary from "@/components/Buttons/ButtonSecondary/ButtonSecondary.vue";
-import InputColor from "@/components/Inputs/InputColor/InputColor.vue";
-import InputRange from "@/components/Inputs/InputRange/InputRange.vue";
+import ButtonSecondary from "@src/components/Buttons/ButtonSecondary/ButtonSecondary.vue";
+import InputColor from "@src/components/Inputs/InputColor/InputColor.vue";
+import InputRange from "@src/components/Inputs/InputRange/InputRange.vue";
 
-import socket from "@/socket";
-import { useCanvasStore } from "@/stores/canvas/canvas";
-import { useRoomStore } from "@/stores/room/room";
+import socket from "@src/socket";
+import { useCanvasStore } from "@src/stores/canvas/canvas";
+import { useRoomStore } from "@src/stores/room/room";
 
 type FormCanvas = {
   size: number;

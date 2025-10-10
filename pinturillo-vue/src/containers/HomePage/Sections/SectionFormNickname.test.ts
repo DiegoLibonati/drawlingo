@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 
-import SectionFormNickname from "@/containers/HomePage/Sections/SectionFormNickname.vue";
+import SectionFormNickname from "@src/containers/HomePage/Sections/SectionFormNickname.vue";
 
 describe("SectionFormNickname.vue", () => {
   describe("General Tests.", () => {

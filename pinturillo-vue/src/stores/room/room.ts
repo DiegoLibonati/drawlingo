@@ -1,8 +1,8 @@
 import { defineStore, acceptHMRUpdate } from "pinia";
 
-import { Player, Room } from "@/entities/entities";
+import { Player, Room } from "@src/entities/entities";
 
-import { useUserStore } from "@/stores/user/user";
+import { useUserStore } from "@src/stores/user/user";
 
 export const useRoomStore = defineStore("room", {
   state: (): Room => ({
@@ -42,7 +42,7 @@ export const useRoomStore = defineStore("room", {
       return state.players.find((player) => player.choosingAWord)! || null;
     },
     playerPaitingWord: (state: Room): Player | null => {
-      return state.players.find((player) => player.isPaiting)! || null;
+      return state.players.find((player) => player.isPainting)! || null;
     },
     currentPlayerGuessed: (state: Room): Player | null => {
       const userStore = useUserStore();

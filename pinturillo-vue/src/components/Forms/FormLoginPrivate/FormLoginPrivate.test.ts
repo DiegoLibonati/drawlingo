@@ -3,7 +3,7 @@ import { shallowMount } from "@vue/test-utils";
 import { createRouter, createWebHistory, Router } from "vue-router";
 import { createPinia, setActivePinia } from "pinia";
 
-import FormLoginPrivate from "@/components/Forms/FormLoginPrivate/FormLoginPrivate.vue";
+import FormLoginPrivate from "@src/components/Forms/FormLoginPrivate/FormLoginPrivate.vue";
 
 const mockRoute = {
   idRoom: "asd",

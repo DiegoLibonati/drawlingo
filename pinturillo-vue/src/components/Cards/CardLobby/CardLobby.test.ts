@@ -2,7 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createRouter, createWebHistory, Router } from "vue-router";
 
-import CardLobby from "@/components/Cards/CardLobby/CardLobby.vue";
+import CardLobby from "@src/components/Cards/CardLobby/CardLobby.vue";
 
 const props = {
   idRoom: "asd",

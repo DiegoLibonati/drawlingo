@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FormCreateRoom from "@/components/Forms/FormCreateRoom/FormCreateRoom.vue";
+import FormCreateRoom from "@src/components/Forms/FormCreateRoom/FormCreateRoom.vue";
 </script>
 
 <template>

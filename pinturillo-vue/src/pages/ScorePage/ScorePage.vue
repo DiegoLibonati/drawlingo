@@ -2,16 +2,16 @@
 import { onBeforeUnmount, onMounted } from "vue";
 import { useRouter } from "vue-router";
 
-import { Room } from "@/entities/entities";
-import { EVENTS_SOCKET_SERVER } from "@/entities/enums";
+import { Room } from "@src/entities/entities";
+import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
 
-import MainLayout from "@/layouts/MainLayout/MainLayout.vue";
+import MainLayout from "@src/layouts/MainLayout/MainLayout.vue";
 
-import SectionPlayersScore from "@/containers/ScorePage/Sections/SectionPlayersScore.vue";
+import SectionPlayersScore from "@src/containers/ScorePage/Sections/SectionPlayersScore.vue";
 
-import socket from "@/socket";
-import { useAlertStore } from "@/stores/alert/alert";
-import { useRoomStore } from "@/stores/room/room";
+import socket from "@src/socket";
+import { useAlertStore } from "@src/stores/alert/alert";
+import { useRoomStore } from "@src/stores/room/room";
 
 const router = useRouter();
 

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
+import { EVENTS_SOCKET_CLIENT } from "@src/entities/enums";
 
-import ButtonPrimary from "@/components/Buttons/ButtonPrimary/ButtonPrimary.vue";
+import ButtonPrimary from "@src/components/Buttons/ButtonPrimary/ButtonPrimary.vue";
 
-import socket from "@/socket";
-import { useRoomStore } from "@/stores/room/room";
+import socket from "@src/socket";
+import { useRoomStore } from "@src/stores/room/room";
 
 const roomStore = useRoomStore();
 

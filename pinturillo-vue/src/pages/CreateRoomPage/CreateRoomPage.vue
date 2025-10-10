@@ -2,13 +2,13 @@
 import { onBeforeUnmount, onMounted } from "vue";
 import { useRouter } from "vue-router";
 
-import { EVENTS_SOCKET_SERVER } from "@/entities/enums";
+import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
 
-import SectionFormCreateRoom from "@/containers/CreateRoomPage/Sections/SectionFormCreateRoom.vue";
+import SectionFormCreateRoom from "@src/containers/CreateRoomPage/Sections/SectionFormCreateRoom.vue";
 
-import MainLayout from "@/layouts/MainLayout/MainLayout.vue";
+import MainLayout from "@src/layouts/MainLayout/MainLayout.vue";
 
-import socket from "@/socket";
+import socket from "@src/socket";
 
 const router = useRouter();
 

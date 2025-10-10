@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 
-import CardPlayerScore from "@/components/Cards/CardPlayerScore/CardPlayerScore.vue";
+import CardPlayerScore from "@src/components/Cards/CardPlayerScore/CardPlayerScore.vue";
 
 const props = {
   position: 1,
@@ -8,7 +8,7 @@ const props = {
     id: "user_123",
     username: "usercito",
     actualRoom: "1234",
-    isPaiting: false,
+    isPainting: false,
     alreadyPainted: false,
     choosingAWord: false,
     score: 10,

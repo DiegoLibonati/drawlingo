@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 
-import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
+import { EVENTS_SOCKET_CLIENT } from "@src/entities/enums";
 
-import ButtonPrimary from "@/components/Buttons/ButtonPrimary/ButtonPrimary.vue";
-import CardLobby from "@/components/Cards/CardLobby/CardLobby.vue";
+import ButtonPrimary from "@src/components/Buttons/ButtonPrimary/ButtonPrimary.vue";
+import CardLobby from "@src/components/Cards/CardLobby/CardLobby.vue";
 
-import socket from "@/socket";
-import { useLobbyStore } from "@/stores/lobby/lobby";
+import socket from "@src/socket";
+import { useLobbyStore } from "@src/stores/lobby/lobby";
 
 const lobbyStore = useLobbyStore();
 

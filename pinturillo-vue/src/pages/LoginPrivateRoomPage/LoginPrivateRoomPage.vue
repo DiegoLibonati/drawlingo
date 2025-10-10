@@ -2,14 +2,14 @@
 import { onBeforeUnmount, onMounted } from "vue";
 import { useRouter } from "vue-router";
 
-import { EVENTS_SOCKET_SERVER } from "@/entities/enums";
+import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
 
-import MainLayout from "@/layouts/MainLayout/MainLayout.vue";
+import MainLayout from "@src/layouts/MainLayout/MainLayout.vue";
 
-import SectionLoginPrivateRoom from "@/containers/LoginPrivateRoomPage/Sections/SectionLoginPrivateRoom.vue";
+import SectionLoginPrivateRoom from "@src/containers/LoginPrivateRoomPage/Sections/SectionLoginPrivateRoom.vue";
 
-import socket from "@/socket";
-import { useAlertStore } from "@/stores/alert/alert";
+import socket from "@src/socket";
+import { useAlertStore } from "@src/stores/alert/alert";
 
 const router = useRouter();
 

@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref, watch } from "vue";
 
-import { Message } from "@/entities/entities";
-import { EVENTS_SOCKET_SERVER } from "@/entities/enums";
+import { Message } from "@src/entities/entities";
+import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
 
-import MessageChat from "@/components/Chats/MessageChat/MessageChat.vue";
-import FormChatGame from "@/components/Forms/FormChatGame/FormChatGame.vue";
+import MessageChat from "@src/components/Chats/MessageChat/MessageChat.vue";
+import FormChatGame from "@src/components/Forms/FormChatGame/FormChatGame.vue";
 
-import socket from "@/socket";
-import { useUserStore } from "@/stores/user/user";
-import { useRoomStore } from "@/stores/room/room";
+import socket from "@src/socket";
+import { useUserStore } from "@src/stores/user/user";
+import { useRoomStore } from "@src/stores/room/room";
 
-import successMp3 from "@/assets/audios/success.mp3";
+import successMp3 from "@src/assets/audios/success.mp3";
 
 const roomStore = useRoomStore();
 const userStore = useUserStore();

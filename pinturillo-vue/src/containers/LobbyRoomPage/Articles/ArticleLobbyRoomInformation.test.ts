@@ -2,11 +2,11 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createPinia, setActivePinia } from "pinia";
 
-import ArticleLobbyRoomInformation from "@/containers/LobbyRoomPage/Articles/ArticleLobbyRoomInformation.vue";
+import ArticleLobbyRoomInformation from "@src/containers/LobbyRoomPage/Articles/ArticleLobbyRoomInformation.vue";
 
-import { useRoomStore } from "@/stores/room/room";
+import { useRoomStore } from "@src/stores/room/room";
 
-jest.mock("@/stores/room/room", () => ({
+jest.mock("@src/stores/room/room", () => ({
   useRoomStore: jest.fn(),
 }));
 

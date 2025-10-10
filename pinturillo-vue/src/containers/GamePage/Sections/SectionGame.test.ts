@@ -1,11 +1,11 @@
 import { shallowMount } from "@vue/test-utils";
 
-import SectionGame from "@/containers/GamePage/Sections/SectionGame.vue";
+import SectionGame from "@src/containers/GamePage/Sections/SectionGame.vue";
 
-jest.mock("@/assets/images/pintando.png", () => "mock-pintando.png");
-jest.mock("@/assets/images/pinto.png", () => "mock-pinto.png");
-jest.mock("@/assets/images/star.png", () => "mock-star.png");
-jest.mock("@/assets/audios/success.mp3", () => "success.mp3");
+jest.mock("@src/assets/images/pintando.png", () => "mock-pintando.png");
+jest.mock("@src/assets/images/pinto.png", () => "mock-pinto.png");
+jest.mock("@src/assets/images/star.png", () => "mock-star.png");
+jest.mock("@src/assets/audios/success.mp3", () => "success.mp3");
 
 describe("SectionGame.vue", () => {
   describe("General Tests.", () => {

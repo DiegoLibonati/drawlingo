@@ -1,8 +1,8 @@
 import { shallowMount } from "@vue/test-utils";
 
-import ArticleGameChat from "@/containers/GamePage/Articles/ArticleGameChat.vue";
+import ArticleGameChat from "@src/containers/GamePage/Articles/ArticleGameChat.vue";
 
-jest.mock("@/assets/audios/success.mp3", () => "success.mp3");
+jest.mock("@src/assets/audios/success.mp3", () => "success.mp3");
 
 describe("ArticleGameChat.vue", () => {
   describe("General Tests.", () => {

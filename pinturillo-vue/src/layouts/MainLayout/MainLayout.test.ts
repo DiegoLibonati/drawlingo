@@ -2,9 +2,9 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createRouter, createWebHistory, Router } from "vue-router";
 
-import MainLayout from "@/layouts/MainLayout/MainLayout.vue";
+import MainLayout from "@src/layouts/MainLayout/MainLayout.vue";
 
-jest.mock("@/assets/images/vue.svg", () => "vue-svg.svg");
+jest.mock("@src/assets/images/vue.svg", () => "vue-svg.svg");
 
 const props = {
   layoutType: "flex",

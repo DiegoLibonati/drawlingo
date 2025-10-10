@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import CardPlayerScore from "@/components/Cards/CardPlayerScore/CardPlayerScore.vue";
+import CardPlayerScore from "@src/components/Cards/CardPlayerScore/CardPlayerScore.vue";
 
-import { useRoomStore } from "@/stores/room/room";
+import { useRoomStore } from "@src/stores/room/room";
 
 const roomStore = useRoomStore();
 </script>

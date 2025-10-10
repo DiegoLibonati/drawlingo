@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 
-import ButtonGridTertiaryFull from "@/components/Buttons/ButtonGridTertiaryFull/ButtonGridTertiaryFull.vue";
+import ButtonGridTertiaryFull from "@src/components/Buttons/ButtonGridTertiaryFull/ButtonGridTertiaryFull.vue";
 
 const props = {
   mockClick: jest.fn(),

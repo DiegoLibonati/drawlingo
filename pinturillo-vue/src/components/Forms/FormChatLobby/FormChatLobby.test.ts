@@ -2,7 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createPinia, setActivePinia } from "pinia";
 
-import FormChatLobby from "@/components/Forms/FormChatLobby/FormChatLobby.vue";
+import FormChatLobby from "@src/components/Forms/FormChatLobby/FormChatLobby.vue";
 
 describe("FormChatLobby.vue", () => {
   let pinia: ReturnType<typeof createPinia>;

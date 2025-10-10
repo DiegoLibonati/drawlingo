@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { EVENTS_SOCKET_CLIENT } from "@/entities/enums";
+import { EVENTS_SOCKET_CLIENT } from "@src/entities/enums";
 
-import ButtonSecondary from "@/components/Buttons/ButtonSecondary/ButtonSecondary.vue";
+import ButtonSecondary from "@src/components/Buttons/ButtonSecondary/ButtonSecondary.vue";
 
-import ArticleLobbyRoomInformation from "@/containers/LobbyRoomPage/Articles/ArticleLobbyRoomInformation.vue";
-import ArticleLobbyRoomPlayers from "@/containers/LobbyRoomPage/Articles/ArticleLobbyRoomPlayers.vue";
+import ArticleLobbyRoomInformation from "@src/containers/LobbyRoomPage/Articles/ArticleLobbyRoomInformation.vue";
+import ArticleLobbyRoomPlayers from "@src/containers/LobbyRoomPage/Articles/ArticleLobbyRoomPlayers.vue";
 
-import socket from "@/socket";
-import { useUserStore } from "@/stores/user/user";
-import { useRoomStore } from "@/stores/room/room";
+import socket from "@src/socket";
+import { useUserStore } from "@src/stores/user/user";
+import { useRoomStore } from "@src/stores/room/room";
 
 const roomStore = useRoomStore();
 const userStore = useUserStore();

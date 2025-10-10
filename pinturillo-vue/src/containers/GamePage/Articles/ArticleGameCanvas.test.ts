@@ -2,15 +2,15 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createPinia, setActivePinia } from "pinia";
 
-import ArticleGameCanvas from "@/containers/GamePage/Articles/ArticleGameCanvas.vue";
+import ArticleGameCanvas from "@src/containers/GamePage/Articles/ArticleGameCanvas.vue";
 
-import { useUserStore } from "@/stores/user/user";
-import { useRoomStore } from "@/stores/room/room";
+import { useUserStore } from "@src/stores/user/user";
+import { useRoomStore } from "@src/stores/room/room";
 
-jest.mock("@/stores/user/user", () => ({
+jest.mock("@src/stores/user/user", () => ({
   useUserStore: jest.fn(),
 }));
-jest.mock("@/stores/room/room", () => ({
+jest.mock("@src/stores/room/room", () => ({
   useRoomStore: jest.fn(),
 }));
 
@@ -61,7 +61,7 @@ describe("ArticleGameCanvas.vue", () => {
       id: "a1",
       username: "a",
       actualRoom: "a2",
-      isPaiting: false,
+      isPainting: false,
       alreadyPainted: false,
       choosingAWord: false,
       score: 10,
@@ -106,7 +106,7 @@ describe("ArticleGameCanvas.vue", () => {
       id: idUser,
       username: "a",
       actualRoom: "a2",
-      isPaiting: false,
+      isPainting: false,
       alreadyPainted: false,
       choosingAWord: false,
       score: 10,

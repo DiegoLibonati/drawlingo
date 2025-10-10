@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FormNickname from "@/components/Forms/FormNickname/FormNickname.vue";
+import FormNickname from "@src/components/Forms/FormNickname/FormNickname.vue";
 </script>
 
 <template>

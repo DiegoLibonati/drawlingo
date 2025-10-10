@@ -2,11 +2,11 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createPinia, setActivePinia } from "pinia";
 
-import BoardSelectingWord from "@/components/Board/BoardSelectingWord/BoardSelectingWord.vue";
+import BoardSelectingWord from "@src/components/Board/BoardSelectingWord/BoardSelectingWord.vue";
 
-import { useRoomStore } from "@/stores/room/room";
+import { useRoomStore } from "@src/stores/room/room";
 
-jest.mock("@/stores/room/room", () => ({
+jest.mock("@src/stores/room/room", () => ({
   useRoomStore: jest.fn(),
 }));
 
@@ -23,7 +23,7 @@ describe("BoardSelectingWord.vue", () => {
       id: "a1",
       username: "a",
       actualRoom: "a2",
-      isPaiting: false,
+      isPainting: false,
       alreadyPainted: false,
       choosingAWord: false,
       score: 10,

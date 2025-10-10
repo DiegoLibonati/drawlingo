@@ -2,13 +2,13 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createPinia, setActivePinia } from "pinia";
 
-import ChatGame from "@/components/Chats/ChatGame/ChatGame.vue";
+import ChatGame from "@src/components/Chats/ChatGame/ChatGame.vue";
 
-import { useUserStore } from "@/stores/user/user";
+import { useUserStore } from "@src/stores/user/user";
 
-jest.mock("@/assets/audios/success.mp3", () => "audio_success.mp3");
+jest.mock("@src/assets/audios/success.mp3", () => "audio_success.mp3");
 
-jest.mock("@/stores/user/user", () => ({
+jest.mock("@src/stores/user/user", () => ({
   useUserStore: jest.fn(),
 }));
 

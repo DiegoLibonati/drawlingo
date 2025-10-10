@@ -1,8 +1,8 @@
 import { defineStore, acceptHMRUpdate } from "pinia";
 
-import { User } from "@/entities/entities";
+import { User } from "@src/entities/entities";
 
-import { useSessionStorage } from "@/hooks/useSessionStorage";
+import { useSessionStorage } from "@src/hooks/useSessionStorage";
 
 export const useUserStore = defineStore("user", {
   state: (): User => ({

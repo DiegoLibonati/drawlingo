@@ -2,9 +2,9 @@ import { shallowMount } from "@vue/test-utils";
 
 import { createRouter, createWebHistory, Router } from "vue-router";
 
-import Header from "@/components/Header/Header.vue";
+import Header from "@src/components/Header/Header.vue";
 
-jest.mock("@/assets/images/vue.svg", () => "vue-logo.svg");
+jest.mock("@src/assets/images/vue.svg", () => "vue-logo.svg");
 
 describe("Header.vue", () => {
   let router: Router;

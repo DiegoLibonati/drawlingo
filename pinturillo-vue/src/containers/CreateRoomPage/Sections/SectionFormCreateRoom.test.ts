@@ -1,6 +1,6 @@
 import { shallowMount } from "@vue/test-utils";
 
-import SectionFormCreateRoom from "@/containers/CreateRoomPage/Sections/SectionFormCreateRoom.vue";
+import SectionFormCreateRoom from "@src/containers/CreateRoomPage/Sections/SectionFormCreateRoom.vue";
 
 describe("SectionFormCreateRoom.vue", () => {
   describe("General Tests.", () => {
