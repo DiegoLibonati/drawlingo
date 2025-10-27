@@ -2,15 +2,16 @@
 import { onBeforeUnmount, onMounted } from "vue";
 import { useRouter } from "vue-router";
 
-import { User } from "@src/entities/entities";
+import { User } from "@src/entities/app";
 import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
 
-import SectionFormNickname from "@src/containers/HomePage/Sections/SectionFormNickname.vue";
+import SectionFormNickname from "@src/components/Sections/SectionFormNickname/SectionFormNickname.vue";
 
 import MainLayout from "@src/layouts/MainLayout/MainLayout.vue";
 
+import { useUserStore } from "@src/stores/useUserStore";
+
 import socket from "@src/socket";
-import { useUserStore } from "@src/stores/user/user";
 
 const userStore = useUserStore();
 const router = useRouter();
@@ -31,7 +32,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <MainLayout layout-type="flex" class="items-center justify-center">
-    <SectionFormNickname></SectionFormNickname>
-  </MainLayout>
+  <main-layout layout-type="flex" class="items-center justify-center">
+    <section-form-nickname></section-form-nickname>
+  </main-layout>
 </template>

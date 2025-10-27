@@ -5,10 +5,11 @@ import { EVENTS_SOCKET_CLIENT } from "@src/entities/enums";
 
 import BoardToolBar from "@src/components/Board/BoardToolBar/BoardToolBar.vue";
 
+import { useCanvasStore } from "@src/stores/useCanvasStore";
+import { useRoomStore } from "@src/stores/useRoomStore";
+import { useUserStore } from "@src/stores/useUserStore";
+
 import socket from "@src/socket";
-import { useCanvasStore } from "@src/stores/canvas/canvas";
-import { useRoomStore } from "@src/stores/room/room";
-import { useUserStore } from "@src/stores/user/user";
 
 const userStore = useUserStore();
 const roomStore = useRoomStore();
@@ -116,45 +117,33 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="flex flex-col items-center justify-start w-full h-full p-2">
-    <div
-      :class="[
-        `flex flex-col items-center justify-start w-full h-32  p-2 rounded-tr-lg rounded-tl-lg`,
-        roomStore.currentPlayerGuessed ? 'bg-green-400' : 'bg-secondary',
-      ]"
-      data-testid="word-container"
-    >
+    <div :class="[
+      `flex flex-col items-center justify-start w-full h-32  p-2 rounded-tr-lg rounded-tl-lg`,
+      roomStore.currentPlayerGuessed ? 'bg-green-400' : 'bg-secondary',
+    ]" data-testid="word-container">
       <div class="flex relative items-center justify-center w-full h-full">
         <h2 class="text-2xl font-semibold text-white">
           {{
             (roomStore.playerPaitingWord &&
               roomStore.playerPaitingWord.id === userStore.id) ||
-            roomStore.currentPlayerGuessed
+              roomStore.currentPlayerGuessed
               ? roomStore.wordToGuess.actualWord
               : roomStore.wordToGuess.wordWithPlaceholder
           }}
         </h2>
         <h3
-          class="flex items-center justify-center absolute right-0 text-white rounded-full bg-primary font-semibold w-8 h-8"
-        >
+          class="flex items-center justify-center absolute right-0 text-white rounded-full bg-primary font-semibold w-8 h-8">
           {{ roomStore.countdownGame }}
         </h3>
       </div>
-      <BoardToolBar
-        v-if="
-          roomStore.playerPaitingWord &&
-          roomStore.playerPaitingWord.id === userStore.id
-        "
-      ></BoardToolBar>
+      <board-tool-bar v-if="
+        roomStore.playerPaitingWord &&
+        roomStore.playerPaitingWord.id === userStore.id
+      "></board-tool-bar>
     </div>
     <div class="w-full h-full rounded-br-lg rounded-bl-lg">
-      <canvas
-        class="bg-white w-full h-full rounded-br-lg rounded-bl-lg"
-        ref="canvasRef"
-        @mousedown="handleMouseDown"
-        @mousemove="handleMouseMove"
-        @mouseup="handleMouseUp"
-        @mouseleave="handleMouseLeave"
-      ></canvas>
+      <canvas class="bg-white w-full h-full rounded-br-lg rounded-bl-lg" ref="canvasRef" @mousedown="handleMouseDown"
+        @mousemove="handleMouseMove" @mouseup="handleMouseUp" @mouseleave="handleMouseLeave"></canvas>
     </div>
   </div>
 </template>

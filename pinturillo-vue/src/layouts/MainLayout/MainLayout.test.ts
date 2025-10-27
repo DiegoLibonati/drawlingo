@@ -4,8 +4,6 @@ import { createRouter, createWebHistory, Router } from "vue-router";
 
 import MainLayout from "@src/layouts/MainLayout/MainLayout.vue";
 
-jest.mock("@src/assets/images/vue.svg", () => "vue-svg.svg");
-
 const props = {
   layoutType: "flex",
   class: "asd-123",

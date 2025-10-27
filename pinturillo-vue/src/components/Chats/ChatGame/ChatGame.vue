@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref, watch } from "vue";
 
-import { Message } from "@src/entities/entities";
+import { Message } from "@src/entities/app";
 import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
 
 import MessageChat from "@src/components/Chats/MessageChat/MessageChat.vue";
 import FormChatGame from "@src/components/Forms/FormChatGame/FormChatGame.vue";
 
-import socket from "@src/socket";
-import { useUserStore } from "@src/stores/user/user";
-import { useRoomStore } from "@src/stores/room/room";
+import { useUserStore } from "@src/stores/useUserStore";
+import { useRoomStore } from "@src/stores/useRoomStore";
 
-import successMp3 from "@src/assets/audios/success.mp3";
+import socket from "@src/socket";
+
+import assets from "@src/assets/export";
+
 
 const roomStore = useRoomStore();
 const userStore = useUserStore();
@@ -25,7 +27,7 @@ onMounted(() => {
     }
 
     if (message.success && userStore.id === message.user.id) {
-      const audio = new Audio(successMp3);
+      const audio = new Audio(assets.audios.SuccessMp3);
       audio.play();
     }
   });
@@ -47,15 +49,9 @@ watch(
 
 <template>
   <div class="h-[85%] w-full overflow-auto bg-secondary rounded-lg p-2">
-    <MessageChat
-      v-for="msg in messages"
-      :key="msg.id"
-      :username="msg.user.username"
-      :message="msg.message"
-      :class-username="
-        msg.user.id === userStore.id ? 'text-primary font-bold' : 'text-white'
-      "
-    ></MessageChat>
+    <message-chat v-for="msg in messages" :key="msg.id" :username="msg.user.username" :message="msg.message"
+      :class-username="msg.user.id === userStore.id ? 'text-primary font-bold' : 'text-white'
+        "></message-chat>
   </div>
-  <FormChatGame></FormChatGame>
+  <form-chat-game></form-chat-game>
 </template>

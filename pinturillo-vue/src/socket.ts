@@ -1,8 +1,8 @@
 import { io } from "socket.io-client";
 
-import { Player } from "@src/entities/entities";
+import { Player } from "@src/entities/app";
 
-import { useSessionStorage } from "@src/hooks/useSessionStorage";
+import { useSessionStorage } from "@src/composables/useSessionStorage";
 
 const URL = import.meta.env.VITE_API_URL;
 

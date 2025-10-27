@@ -6,10 +6,11 @@ import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
 
 import MainLayout from "@src/layouts/MainLayout/MainLayout.vue";
 
-import SectionLoginPrivateRoom from "@src/containers/LoginPrivateRoomPage/Sections/SectionLoginPrivateRoom.vue";
+import SectionLoginPrivateRoom from "@src/components/Sections/SectionLoginPrivateRoom/SectionLoginPrivateRoom.vue";
+
+import { useAlertStore } from "@src/stores/useAlertStore";
 
 import socket from "@src/socket";
-import { useAlertStore } from "@src/stores/alert/alert";
 
 const router = useRouter();
 
@@ -37,7 +38,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <MainLayout layout-type="flex" class="flex-col items-center justify-center">
-    <SectionLoginPrivateRoom></SectionLoginPrivateRoom>
-  </MainLayout>
+  <main-layout layout-type="flex" class="flex-col items-center justify-center">
+    <section-login-private-room></section-login-private-room>
+  </main-layout>
 </template>

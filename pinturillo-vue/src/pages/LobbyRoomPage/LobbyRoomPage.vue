@@ -2,16 +2,17 @@
 import { onBeforeUnmount, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
-import { Room } from "@src/entities/entities";
+import { Room } from "@src/entities/app";
 import { EVENTS_SOCKET_CLIENT, EVENTS_SOCKET_SERVER } from "@src/entities/enums";
 
 import MainLayout from "@src/layouts/MainLayout/MainLayout.vue";
 
-import SectionLobbyRoom from "@src/containers/LobbyRoomPage/Sections/SectionLobbyRoom.vue";
+import SectionLobbyRoom from "@src/components/Sections/SectionLobbyRoom/SectionLobbyRoom.vue";
+
+import { useRoomStore } from "@src/stores/useRoomStore";
+import { useAlertStore } from "@src/stores/useAlertStore";
 
 import socket from "@src/socket";
-import { useRoomStore } from "@src/stores/room/room";
-import { useAlertStore } from "@src/stores/alert/alert";
 
 const route = useRoute();
 const router = useRouter();
@@ -47,7 +48,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <MainLayout layoutType="flex" class="flex-col items-center justify-center">
-    <SectionLobbyRoom></SectionLobbyRoom>
-  </MainLayout>
+  <main-layout layoutType="flex" class="flex-col items-center justify-center">
+    <section-lobby-room></section-lobby-room>
+  </main-layout>
 </template>

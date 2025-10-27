@@ -1,17 +1,16 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
+import { FormChatGame } from "@src/entities/forms";
 import { EVENTS_SOCKET_CLIENT } from "@src/entities/enums";
 
 import ButtonSecondary from "@src/components/Buttons/ButtonSecondary/ButtonSecondary.vue";
 import InputSecondary from "@src/components/Inputs/InputSecondary/InputSecondary.vue";
 
-import socket from "@src/socket";
-import { useRoomStore } from "@src/stores/room/room";
+import { useRoomStore } from "@src/stores/useRoomStore";
 
-type FormChatGame = {
-  message: string;
-};
+import socket from "@src/socket";
+
 
 const INITIAL_VALUE_FORM: FormChatGame = {
   message: "",
@@ -43,19 +42,11 @@ const handleSubmitForm = (e: Event) => {
 </script>
 
 <template>
-  <form
-    class="flex flex-row items-center justify-center h-[15%] w-full"
-    @submit="handleSubmitForm"
-  >
-    <InputSecondary
-      id="message"
-      placeholder="Enter a message.."
-      type="text"
-      class="flex-2 h-full px-2"
-      v-model="form.message"
-    ></InputSecondary>
-    <ButtonSecondary class="flex-2 ml-2 h-full" type="submit">
+  <form class="flex flex-row items-center justify-center h-[15%] w-full" @submit="handleSubmitForm">
+    <input-secondary id="message" placeholder="Enter a message.." type="text" class="flex-2 h-full px-2"
+      v-model="form.message"></input-secondary>
+    <button-secondary class="flex-2 ml-2 h-full" type="submit">
       Send
-    </ButtonSecondary>
+    </button-secondary>
   </form>
 </template>

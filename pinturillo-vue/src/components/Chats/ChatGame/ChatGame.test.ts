@@ -4,11 +4,9 @@ import { createPinia, setActivePinia } from "pinia";
 
 import ChatGame from "@src/components/Chats/ChatGame/ChatGame.vue";
 
-import { useUserStore } from "@src/stores/user/user";
+import { useUserStore } from "@src/stores/useUserStore";
 
-jest.mock("@src/assets/audios/success.mp3", () => "audio_success.mp3");
-
-jest.mock("@src/stores/user/user", () => ({
+jest.mock("@src/stores/useUserStore", () => ({
   useUserStore: jest.fn(),
 }));
 
@@ -21,7 +19,7 @@ describe("ChatGame.vue", () => {
   });
 
   describe("General Tests.", () => {
-    const idUser = "user_123"
+    const idUser = "user_123";
 
     beforeEach(() => {
       const userStoreMock = {

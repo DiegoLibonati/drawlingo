@@ -2,17 +2,16 @@
 import { ref } from "vue";
 
 import { EVENTS_SOCKET_CLIENT } from "@src/entities/enums";
+import { FormNickname } from "@src/entities/forms";
 
 import ButtonGridTertiaryFull from "@src/components/Buttons/ButtonGridTertiaryFull/ButtonGridTertiaryFull.vue";
 import ButtonGridTertiary from "@src/components/Buttons/ButtonGridTertiary/ButtonGridTertiary.vue";
 import InputTransparent from "@src/components/Inputs/InputTransparent/InputTransparent.vue";
 
-import socket from "@src/socket";
-import { useAlertStore } from "@src/stores/alert/alert";
+import { useAlertStore } from "@src/stores/useAlertStore";
 
-type FormNickname = {
-  nickname: string;
-};
+import socket from "@src/socket";
+
 
 const INITIAL_VALUE_FORM: FormNickname = {
   nickname: "player",
@@ -58,31 +57,17 @@ const handleRedirect = async (path: string): Promise<void> => {
 
 <template>
   <form class="flex flex-col items-start justify-center h-auto w-full">
-    <InputTransparent
-      :id="'nickname'"
-      :label-value="'Nickname'"
-      :placeholder="'Insert your nickname'"
-      class="text-4xl p-2 mt-2"
-      v-model="form.nickname"
-    ></InputTransparent>
+    <input-transparent :id="'nickname'" :label-value="'Nickname'" :placeholder="'Insert your nickname'"
+      class="text-4xl p-2 mt-2" v-model="form.nickname"></input-transparent>
     <div class="grid grid-cols-2 gap-2 w-full mt-4">
-      <ButtonGridTertiary
-        id="btn-lobby"
-        :click="() => handleRedirect('/lobby')"
-      >
+      <button-grid-tertiary id="btn-lobby" :click="() => handleRedirect('/lobby')">
         LOBBY
-      </ButtonGridTertiary>
-      <ButtonGridTertiary
-        id="btn-create-room"
-        :click="() => handleRedirect('/room/create')"
-      >
+      </button-grid-tertiary>
+      <button-grid-tertiary id="btn-create-room" :click="() => handleRedirect('/room/create')">
         CREATE ROOM
-      </ButtonGridTertiary>
-      <ButtonGridTertiaryFull
-        id="btn-join-to-private-room"
-        :click="() => handleRedirect('/room/login/private')"
-        >JOIN TO PRIVATE ROOM</ButtonGridTertiaryFull
-      >
+      </button-grid-tertiary>
+      <button-grid-tertiary-full id="btn-join-to-private-room" :click="() => handleRedirect('/room/login/private')">JOIN
+        TO PRIVATE ROOM</button-grid-tertiary-full>
     </div>
   </form>
 </template>

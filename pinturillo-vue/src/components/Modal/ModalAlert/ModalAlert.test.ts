@@ -4,9 +4,9 @@ import { createPinia, setActivePinia } from "pinia";
 
 import ModalAlert from "@src/components/Modal/ModalAlert/ModalAlert.vue";
 
-import { useAlertStore } from "@src/stores/alert/alert";
+import { useAlertStore } from "@src/stores/useAlertStore";
 
-jest.mock("@src/stores/alert/alert", () => ({
+jest.mock("@src/stores/useAlertStore", () => ({
   useAlertStore: jest.fn(),
 }));
 

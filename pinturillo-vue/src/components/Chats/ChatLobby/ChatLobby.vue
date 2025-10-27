@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { onMounted, ref, onBeforeUnmount } from "vue";
 
-import { Message } from "@src/entities/entities";
+import { Message } from "@src/entities/app";
 import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
 
 import MessageChat from "@src/components/Chats/MessageChat/MessageChat.vue";
 import FormChatLobby from "@src/components/Forms/FormChatLobby/FormChatLobby.vue";
 
+import { useUserStore } from "@src/stores/useUserStore";
+
 import socket from "@src/socket";
-import { useUserStore } from "@src/stores/user/user";
 
 const userStore = useUserStore();
 
@@ -27,15 +28,9 @@ onBeforeUnmount(() => {
 
 <template>
   <article class="h-[85%] w-full overflow-auto">
-    <MessageChat
-      v-for="msg in messages"
-      :key="msg.id"
-      :username="msg.user.username"
-      :message="msg.message"
-      :class-username="
-        msg.user.id === userStore.id ? 'text-primary font-bold' : 'text-white'
-      "
-    ></MessageChat>
+    <message-chat v-for="msg in messages" :key="msg.id" :username="msg.user.username" :message="msg.message"
+      :class-username="msg.user.id === userStore.id ? 'text-primary font-bold' : 'text-white'
+        "></message-chat>
   </article>
-  <FormChatLobby></FormChatLobby>
+  <form-chat-lobby></form-chat-lobby>
 </template>

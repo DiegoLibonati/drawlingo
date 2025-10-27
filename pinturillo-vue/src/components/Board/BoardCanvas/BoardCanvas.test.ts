@@ -4,13 +4,13 @@ import { createPinia, setActivePinia } from "pinia";
 
 import BoardCanvas from "@src/components/Board/BoardCanvas/BoardCanvas.vue";
 
-import { useRoomStore } from "@src/stores/room/room";
-import { useUserStore } from "@src/stores/user/user";
+import { useRoomStore } from "@src/stores/useRoomStore";
+import { useUserStore } from "@src/stores/useUserStore";
 
-jest.mock("@src/stores/room/room", () => ({
+jest.mock("@src/stores/useRoomStore", () => ({
   useRoomStore: jest.fn(),
 }));
-jest.mock("@src/stores/user/user", () => ({
+jest.mock("@src/stores/useUserStore", () => ({
   useUserStore: jest.fn(),
 }));
 

@@ -1,17 +1,18 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted } from "vue";
 
-import { Lobby } from "@src/entities/entities";
+import { Lobby } from "@src/entities/app";
 import { EVENTS_SOCKET_CLIENT, EVENTS_SOCKET_SERVER } from "@src/entities/enums";
 
 import MainLayout from "@src/layouts/MainLayout/MainLayout.vue";
 
-import SectionLobbyRooms from "@src/containers/LobbyPage/Sections/SectionLobbyRooms.vue";
-import SectionLobbyChat from "@src/containers/LobbyPage/Sections/SectionLobbyChat.vue";
+import SectionLobbyRooms from "@src/components/Sections/SectionLobbyRooms/SectionLobbyRooms.vue";
+import SectionLobbyChat from "@src/components/Sections/SectionLobbyChat/SectionLobbyChat.vue";
+
+import { useUserStore } from "@src/stores/useUserStore";
+import { useLobbyStore } from "@src/stores/useLobbyStore";
 
 import socket from "@src/socket";
-import { useUserStore } from "@src/stores/user/user";
-import { useLobbyStore } from "@src/stores/lobby/lobby";
 
 const userStore = useUserStore();
 const lobbyStore = useLobbyStore();
@@ -33,8 +34,8 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <MainLayout layoutType="flex" class="flex-row items-center justify-center">
-    <SectionLobbyRooms></SectionLobbyRooms>
-    <SectionLobbyChat></SectionLobbyChat>
-  </MainLayout>
+  <main-layout layoutType="flex" class="flex-row items-center justify-center">
+    <section-lobby-rooms></section-lobby-rooms>
+    <section-lobby-chat></section-lobby-chat>
+  </main-layout>
 </template>

@@ -2,16 +2,17 @@
 import { onBeforeUnmount, onMounted } from "vue";
 import { useRouter } from "vue-router";
 
-import { Room } from "@src/entities/entities";
+import { Room } from "@src/entities/app";
 import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
 
 import MainLayout from "@src/layouts/MainLayout/MainLayout.vue";
 
-import SectionPlayersScore from "@src/containers/ScorePage/Sections/SectionPlayersScore.vue";
+import SectionPlayersScore from "@src/components/Sections/SectionPlayersScore/SectionPlayersScore.vue";
+
+import { useAlertStore } from "@src/stores/useAlertStore";
+import { useRoomStore } from "@src/stores/useRoomStore";
 
 import socket from "@src/socket";
-import { useAlertStore } from "@src/stores/alert/alert";
-import { useRoomStore } from "@src/stores/room/room";
 
 const router = useRouter();
 
@@ -40,7 +41,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <MainLayout layout-type="flex" class="flex-col items-center justify-center">
-    <SectionPlayersScore></SectionPlayersScore>
-  </MainLayout>
+  <main-layout layout-type="flex" class="flex-col items-center justify-center">
+    <section-players-score></section-players-score>
+  </main-layout>
 </template>

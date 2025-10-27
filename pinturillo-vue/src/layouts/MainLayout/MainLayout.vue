@@ -21,6 +21,6 @@ const mainClass = computed(() => {
 <template>
   <main :class="mainClass">
     <slot></slot>
-    <Mobile></Mobile>
+    <mobile></mobile>
   </main>
 </template>

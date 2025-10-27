@@ -2,7 +2,7 @@
 import { ref, watchEffect } from "vue";
 import { useRouter } from "vue-router";
 
-import { User } from "@src/entities/entities";
+import { User } from "@src/entities/app";
 import { EVENTS_SOCKET_CLIENT } from "@src/entities/enums";
 
 import socket from "@src/socket";

@@ -2,15 +2,12 @@ import { shallowMount } from "@vue/test-utils";
 import { createPinia, setActivePinia } from "pinia";
 
 import CardPlayerGame from "@src/components/Cards/CardPlayerGame/CardPlayerGame.vue";
-import { useUserStore } from "@src/stores/user/user";
 
-jest.mock("@src/stores/user/user", () => ({
+import { useUserStore } from "@src/stores/useUserStore";
+
+jest.mock("@src/stores/useUserStore", () => ({
   useUserStore: jest.fn(),
 }));
-
-jest.mock("@src/assets/images/pintando.png", () => "mock-pintando.png");
-jest.mock("@src/assets/images/pinto.png", () => "mock-pinto.png");
-jest.mock("@src/assets/images/star.png", () => "mock-star.png");
 
 const baseProps = {
   position: 1,

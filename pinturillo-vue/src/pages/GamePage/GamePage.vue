@@ -2,18 +2,19 @@
 import { onBeforeUnmount, onMounted, ref, watch } from "vue";
 import { useRouter } from "vue-router";
 
-import { Room } from "@src/entities/entities";
+import { Room } from "@src/entities/app";
 import { EVENTS_SOCKET_CLIENT, EVENTS_SOCKET_SERVER } from "@src/entities/enums";
 
 import MainLayout from "@src/layouts/MainLayout/MainLayout.vue";
 
-import SectionGame from "@src/containers/GamePage/Sections/SectionGame.vue";
+import SectionGame from "@src/components/Sections/SectionGame/SectionGame.vue";
+
+import { useRoomStore } from "@src/stores/useRoomStore";
+import { useCanvasStore } from "@src/stores/useCanvasStore";
+import { useUserStore } from "@src/stores/useUserStore";
+import { useAlertStore } from "@src/stores/useAlertStore";
 
 import socket from "@src/socket";
-import { useRoomStore } from "@src/stores/room/room";
-import { useCanvasStore } from "@src/stores/canvas/canvas";
-import { useUserStore } from "@src/stores/user/user";
-import { useAlertStore } from "@src/stores/alert/alert";
 
 const timeout = ref<NodeJS.Timeout | null>(null);
 
@@ -128,7 +129,7 @@ watch(
 </script>
 
 <template>
-  <MainLayout layoutType="flex" class="flex-col items-center justify-center">
-    <SectionGame></SectionGame>
-  </MainLayout>
+  <main-layout layoutType="flex" class="flex-col items-center justify-center">
+    <section-game></section-game>
+  </main-layout>
 </template>

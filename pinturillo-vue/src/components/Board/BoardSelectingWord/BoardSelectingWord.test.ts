@@ -4,9 +4,9 @@ import { createPinia, setActivePinia } from "pinia";
 
 import BoardSelectingWord from "@src/components/Board/BoardSelectingWord/BoardSelectingWord.vue";
 
-import { useRoomStore } from "@src/stores/room/room";
+import { useRoomStore } from "@src/stores/useRoomStore";
 
-jest.mock("@src/stores/room/room", () => ({
+jest.mock("@src/stores/useRoomStore", () => ({
   useRoomStore: jest.fn(),
 }));
 

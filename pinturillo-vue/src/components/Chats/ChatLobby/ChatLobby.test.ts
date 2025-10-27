@@ -4,9 +4,9 @@ import { createPinia, setActivePinia } from "pinia";
 
 import ChatLobby from "@src/components/Chats/ChatLobby/ChatLobby.vue";
 
-import { useUserStore } from "@src/stores/user/user";
+import { useUserStore } from "@src/stores/useUserStore";
 
-jest.mock("@src/stores/user/user", () => ({
+jest.mock("@src/stores/useUserStore", () => ({
   useUserStore: jest.fn(),
 }));
 

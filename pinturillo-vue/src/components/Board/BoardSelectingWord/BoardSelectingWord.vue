@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useRoomStore } from "@src/stores/room/room";
+import { useRoomStore } from "@src/stores/useRoomStore";
 
 const roomStore = useRoomStore();
 </script>

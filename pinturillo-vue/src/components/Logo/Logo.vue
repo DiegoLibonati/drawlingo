@@ -3,6 +3,8 @@ import { useRouter } from "vue-router";
 
 import socket from "@src/socket";
 
+import assets from "@src/assets/export";
+
 const router = useRouter();
 
 const handleRedirectHome = () => {
@@ -12,18 +14,10 @@ const handleRedirectHome = () => {
 </script>
 
 <template>
-  <button
-    @click="handleRedirectHome"
-    class="flex flex-row relative"
-    type="button"
-  >
+  <button @click="handleRedirectHome" class="flex flex-row relative" type="button">
     <h2 class="font-semibold text-4xl text-white z-[10] font-playwrite">
       Pinturillo
     </h2>
-    <img
-      src="@src/assets/images/vue.svg"
-      alt="VueJS logo"
-      class="absolute -right-5 z-[5]"
-    />
+    <img :src=assets.images.VueSvg alt="VueJS logo" class="absolute -right-5 z-[5]" />
   </button>
 </template>

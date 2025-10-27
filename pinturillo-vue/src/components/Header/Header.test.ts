@@ -4,8 +4,6 @@ import { createRouter, createWebHistory, Router } from "vue-router";
 
 import Header from "@src/components/Header/Header.vue";
 
-jest.mock("@src/assets/images/vue.svg", () => "vue-logo.svg");
-
 describe("Header.vue", () => {
   let router: Router;
 

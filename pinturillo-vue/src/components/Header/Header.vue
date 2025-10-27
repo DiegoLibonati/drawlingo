@@ -16,6 +16,6 @@ const mainClass = computed(() => {
 
 <template>
   <header :class="mainClass">
-    <Logo></Logo>
+    <logo></logo>
   </header>
 </template>

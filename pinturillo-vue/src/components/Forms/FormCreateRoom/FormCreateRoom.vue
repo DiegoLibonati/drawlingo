@@ -2,29 +2,20 @@
 import { onMounted, ref } from "vue";
 
 import {
-  CountdownRoom,
   OptionsRoom,
-  RoundsRoom,
-  SlotsRoom,
   TypeRoom,
-} from "@src/entities/entities.d";
+} from "@src/entities/app";
+import { FormCreateRoom } from "@src/entities/forms";
 import { EVENTS_SOCKET_CLIENT } from "@src/entities/enums";
 
 import ButtonSecondary from "@src/components/Buttons/ButtonSecondary/ButtonSecondary.vue";
 import InputSecondary from "@src/components/Inputs/InputSecondary/InputSecondary.vue";
 
-import socket from "@src/socket";
-import { useUserStore } from "@src/stores/user/user";
-import { useAlertStore } from "@src/stores/alert/alert";
+import { useUserStore } from "@src/stores/useUserStore";
+import { useAlertStore } from "@src/stores/useAlertStore";
 
-type FormCreateRoom = {
-  name: string;
-  type: TypeRoom;
-  password: string;
-  slots: SlotsRoom;
-  totalRounds: RoundsRoom;
-  countdown: CountdownRoom;
-};
+import socket from "@src/socket";
+
 
 const INITIAL_VALUE_FORM: FormCreateRoom = {
   name: "",
@@ -80,61 +71,39 @@ onMounted(() => {
 </script>
 
 <template>
-  <form
-    class="flex flex-col items-center justify-between w-full h-full"
-    @submit="handleCreateRoom"
-  >
+  <form class="flex flex-col items-center justify-between w-full h-full" @submit="handleCreateRoom">
     <div class="flex-1 w-full">
-      <InputSecondary
-        id="name"
-        v-model="form.name"
-        placeholder="Insert a name for your room..."
-        class="h-12"
-        type="text"
-      ></InputSecondary>
+      <input-secondary id="name" v-model="form.name" placeholder="Insert a name for your room..." class="h-12"
+        type="text"></input-secondary>
 
-      <select
-        id="typeRoom"
+      <select id="typeRoom"
         class="w-full h-12 text-lg bg-secondary border-secondary border-[0.2rem] px-2 mt-2 rounded-lg outline-none text-white cursor-pointer transition-all focus:border-quaternary"
-        v-model="form.type"
-      >
+        v-model="form.type">
         <option value="public">Public room</option>
         <option value="private">Private room</option>
       </select>
 
-      <InputSecondary
-        id="password"
-        type="password"
-        placeholder="Insert a password for your room..."
-        v-model="form.password"
-        class="h-12 mt-2"
-        v-if="form.type === 'private'"
-      ></InputSecondary>
+      <input-secondary id="password" type="password" placeholder="Insert a password for your room..."
+        v-model="form.password" class="h-12 mt-2" v-if="form.type === 'private'"></input-secondary>
 
-      <select
-        id="slotsRoom"
+      <select id="slotsRoom"
         class="w-full h-12 text-lg bg-secondary border-secondary border-[0.2rem] px-2 mt-2 rounded-lg outline-none text-white cursor-pointer transition-all focus:border-quaternary"
-        v-model="form.slots"
-      >
+        v-model="form.slots">
         <option :value="6">6 Slots</option>
         <option :value="8">8 Slots</option>
       </select>
 
-      <select
-        id="totalRoundsRoom"
+      <select id="totalRoundsRoom"
         class="w-full h-12 text-lg bg-secondary border-secondary border-[0.2rem] px-2 mt-2 rounded-lg outline-none text-white cursor-pointer transition-all focus:border-quaternary"
-        v-model="form.totalRounds"
-      >
+        v-model="form.totalRounds">
         <option :value="1">1 Round</option>
         <option :value="2">2 Rounds</option>
         <option :value="3">3 Rounds</option>
       </select>
 
-      <select
-        id="countdown"
+      <select id="countdown"
         class="w-full h-12 text-lg bg-secondary border-secondary border-[0.2rem] px-2 mt-2 rounded-lg outline-none text-white cursor-pointer transition-all focus:border-quaternary"
-        v-model="form.countdown"
-      >
+        v-model="form.countdown">
         <option :value="10">10 Seconds</option>
         <option :value="20">20 Seconds</option>
         <option :value="30">30 Seconds</option>
@@ -147,8 +116,8 @@ onMounted(() => {
       </select>
     </div>
 
-    <ButtonSecondary class="flex-2 p-2" type="submit">
+    <button-secondary class="flex-2 p-2" type="submit">
       ¡Create room!
-    </ButtonSecondary>
+    </button-secondary>
   </form>
 </template>

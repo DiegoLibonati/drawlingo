@@ -4,7 +4,7 @@ import { useRouter } from "vue-router";
 
 import { EVENTS_SOCKET_SERVER } from "@src/entities/enums";
 
-import SectionFormCreateRoom from "@src/containers/CreateRoomPage/Sections/SectionFormCreateRoom.vue";
+import SectionFormCreateRoom from "@src/components/Sections/SectionFormCreateRoom/SectionFormCreateRoom.vue";
 
 import MainLayout from "@src/layouts/MainLayout/MainLayout.vue";
 
@@ -24,7 +24,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <MainLayout layout-type="flex" class="flex-col items-center justify-center">
-    <SectionFormCreateRoom></SectionFormCreateRoom>
-  </MainLayout>
+  <main-layout layout-type="flex" class="flex-col items-center justify-center">
+    <section-form-create-room></section-form-create-room>
+  </main-layout>
 </template>

@@ -9,11 +9,9 @@ const config: Config = {
     url: "http://localhost/",
   },
   moduleNameMapper: {
-    "\\.(css|scss)$": "<rootDir>/tests_mocks/styleMock.js",
-    "^monaco-editor$": "<rootDir>/node_modules/@monaco-editor/react",
+    "\\.(jpg|jpeg|png|gif|svg|mp3)$": "<rootDir>/tests_mocks/fileMock.ts",
     "^@src/(.*)$": "<rootDir>/src/$1",
     "^@tests/(.*)$": "<rootDir>/tests/$1",
-    "^@/(.*)$": "<rootDir>/src/$1",
     "^@vue/test-utils$":
       "<rootDir>/node_modules/@vue/test-utils/dist/vue-test-utils.cjs.js",
   },

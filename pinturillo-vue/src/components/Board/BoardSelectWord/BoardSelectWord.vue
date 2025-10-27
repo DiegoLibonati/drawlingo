@@ -3,8 +3,9 @@ import { EVENTS_SOCKET_CLIENT } from "@src/entities/enums";
 
 import ButtonPrimary from "@src/components/Buttons/ButtonPrimary/ButtonPrimary.vue";
 
+import { useRoomStore } from "@src/stores/useRoomStore";
+
 import socket from "@src/socket";
-import { useRoomStore } from "@src/stores/room/room";
 
 const roomStore = useRoomStore();
 
@@ -21,14 +22,14 @@ const handleWordChoosed = (word: string) => {
     <h2 class="text-white text-2xl font-semibold">Select a word to paint</h2>
 
     <div class="flex flex-col items-center justify-center">
-      <ButtonPrimary
+      <button-primary
         v-for="word in roomStore.wordToGuess.wordsToChoose"
         :click="() => handleWordChoosed(word)"
         class="mt-2"
         type="button"
       >
         {{ word }}
-      </ButtonPrimary>
+      </button-primary>
     </div>
   </div>
 </template>

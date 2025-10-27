@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { Player } from "@src/entities/entities";
+import { Player } from "@src/entities/app";
 
-import { useUserStore } from "@src/stores/user/user";
+import { useUserStore } from "@src/stores/useUserStore";
 
-import imagePanting from "@src/assets/images/pintando.png";
-import imageWasPainted from "@src/assets/images/pinto.png";
-import star from "@src/assets/images/star.png";
+import assets from "@src/assets/export";
 
 const userStore = useUserStore();
 
@@ -34,12 +32,13 @@ const props = defineProps<{
         </h4>
       </div>
     </div>
-    <img :src="imageWasPainted" alt="player painted" class="w-8 h-8 object-contain"
+    <img :src="assets.images.PintoPng" alt="player painted" class="w-8 h-8 object-contain"
       v-if="!props.player.isPainting && props.player.alreadyPainted" />
-    <img :src="imagePanting" alt="player painting" class="w-8 h-8 object-contain"
+    <img :src="assets.images.PintandoPng" alt="player painting" class="w-8 h-8 object-contain"
       v-if="props.player.isPainting && !props.player.alreadyPainted" />
-    <img :src="imageWasPainted" alt="player painted" class="grayscale w-8 h-8 object-contain"
+    <img :src="assets.images.PintoPng" alt="player painted" class="grayscale w-8 h-8 object-contain"
       v-if="!props.player.isPainting && !props.player.alreadyPainted" />
-    <img :src="star" alt="star guess" class="absolute right-10 w-16 h-16 object-contain" v-if="props.player.guessed" />
+    <img :src="assets.images.StarPng" alt="star guess" class="absolute right-10 w-16 h-16 object-contain"
+      v-if="props.player.guessed" />
   </div>
 </template>
