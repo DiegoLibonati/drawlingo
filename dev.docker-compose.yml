@@ -1,46 +1,50 @@
 services:
-  pinturillo-api:
+  drawlingo-api:
     build:
-      context: ./pinturillo-api
+      context: ./drawlingo-api
       dockerfile: Dockerfile.development
     restart: always
     volumes:
-      - ./pinturillo-api/src:/home/app/src
-    ports:
-      - "5000:5000"
-    env_file:
-      - ./pinturillo-api/.env
-    depends_on:
-      - redis
-    networks:
-      - pinturillo-vue-network
-
-  pinturillo-vue:
-    build:
-      context: ./pinturillo-vue
-      dockerfile: Dockerfile.development
-    restart: always
-    volumes:
-      - ./pinturillo-vue:/home/app
+      - ./drawlingo-api:/home/app
       - /home/app/node_modules
     ports:
-      - "5173:5173"
+      - "5050:5050"
     env_file:
-      - ./pinturillo-vue/.env
+      - ./drawlingo-api/.env
     depends_on:
       - redis
-      - pinturillo-api
     networks:
-      - pinturillo-vue-network
+      - drawlingo-net
+
+  drawlingo-app:
+    build:
+      context: ./drawlingo-app
+      dockerfile: Dockerfile.development
+    restart: always
+    volumes:
+      - ./drawlingo-app:/home/app
+      - /home/app/node_modules
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./drawlingo-app/.env
+    depends_on:
+      - redis
+      - drawlingo-api
+    networks:
+      - drawlingo-net
+    stdin_open: true
     tty: true
 
   redis:
-    image: redis:7
+    image: redis:7.0
     restart: always
     volumes:
-      - ./volumes/redis:/var/lib/redis
+      - ./volumes/redis:/data
     networks:
-      - pinturillo-vue-network
+      - drawlingo-net
+    ports:
+      - "6379:6379"
 
 networks:
-  pinturillo-vue-network:
+  drawlingo-net:

@@ -1,0 +1,27 @@
+node_modules
+dist
+dist-ssr
+.git
+.gitignore
+.claude
+.vscode
+.idea
+
+# logs
+*.log
+npm-debug.log*
+
+# env
+*.local
+.env*
+
+# tests y coverage
+__tests__
+coverage
+
+# config de desarrollo (no necesarios en imagen de producción)
+eslint.config.js
+vitest.config.js
+.prettierrc
+.prettierignore
+*.md

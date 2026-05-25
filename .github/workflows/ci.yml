@@ -1,0 +1,226 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ============================================================
+  # BACKEND API
+  # ============================================================
+  api-lint-and-audit:
+    name: API - Lint & Audit
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: drawlingo-api
+
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: drawlingo-api/.nvmrc
+          cache: npm
+          cache-dependency-path: drawlingo-api/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: ESLint
+        run: npm run lint
+
+      - name: Prettier format check
+        run: npm run format:check
+
+      - name: TypeScript type-check
+        run: npm run type-check
+
+      - name: npm audit (high+)
+        run: npm audit --audit-level=high
+        continue-on-error: true
+
+  api-test:
+    name: API - Testing
+    runs-on: ubuntu-latest
+    needs: api-lint-and-audit
+    defaults:
+      run:
+        working-directory: drawlingo-api
+
+    services:
+      redis:
+        image: redis:7.0
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: drawlingo-api/.nvmrc
+          cache: npm
+          cache-dependency-path: drawlingo-api/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Run tests
+        run: npm test
+
+  api-build:
+    name: API - Build
+    runs-on: ubuntu-latest
+    needs: api-test
+    defaults:
+      run:
+        working-directory: drawlingo-api
+
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: drawlingo-api/.nvmrc
+          cache: npm
+          cache-dependency-path: drawlingo-api/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Build
+        run: npm run build
+
+  # ============================================================
+  # FRONTEND APP
+  # ============================================================
+  app-lint-and-audit:
+    name: App - Lint & Audit
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: drawlingo-app
+
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: drawlingo-app/.nvmrc
+          cache: npm
+          cache-dependency-path: drawlingo-app/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: ESLint
+        run: npm run lint
+
+      - name: Prettier format check
+        run: npm run format:check
+
+      - name: TypeScript type-check
+        run: npm run type-check
+
+      - name: npm audit (high+)
+        run: npm audit --audit-level=high
+        continue-on-error: true
+
+  app-test:
+    name: App - Testing
+    runs-on: ubuntu-latest
+    needs: app-lint-and-audit
+    defaults:
+      run:
+        working-directory: drawlingo-app
+
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: drawlingo-app/.nvmrc
+          cache: npm
+          cache-dependency-path: drawlingo-app/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Run tests
+        run: npm test
+
+  app-build:
+    name: App - Build
+    runs-on: ubuntu-latest
+    needs: app-test
+    defaults:
+      run:
+        working-directory: drawlingo-app
+
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: drawlingo-app/.nvmrc
+          cache: npm
+          cache-dependency-path: drawlingo-app/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Build
+        run: npm run build
+
+  # ============================================================
+  # DOCKER - all four images in parallel, after everything
+  # ============================================================
+  docker-build:
+    name: Docker Build - ${{ matrix.project }} ${{ matrix.tag }}
+    runs-on: ubuntu-latest
+    needs: [api-build, app-build]
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - project: drawlingo-api
+            dockerfile: Dockerfile.development
+            tag: drawlingo-api:dev
+          - project: drawlingo-api
+            dockerfile: Dockerfile.production
+            tag: drawlingo-api:prod
+          - project: drawlingo-app
+            dockerfile: Dockerfile.development
+            tag: drawlingo-app:dev
+          - project: drawlingo-app
+            dockerfile: Dockerfile.production
+            tag: drawlingo-app:prod
+
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3.10.0
+
+      - name: Build ${{ matrix.project }}/${{ matrix.dockerfile }}
+        uses: docker/build-push-action@v6.15.0
+        with:
+          context: ${{ matrix.project }}
+          file: ${{ matrix.project }}/${{ matrix.dockerfile }}
+          push: false
+          tags: ${{ matrix.tag }}
