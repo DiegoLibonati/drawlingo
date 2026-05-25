@@ -73,7 +73,11 @@ describe("LobbyRoomPage", () => {
   it("should emit JOIN_ROOM_LOBBY with route param id on mount", async () => {
     await renderPage();
 
-    expect(mockSocket.emit).toHaveBeenCalledWith("join room lobby", "test-room-id");
+    expect(mockSocket.emit).toHaveBeenCalledWith(
+      "join room lobby",
+      "test-room-id",
+      expect.any(Function)
+    );
   });
 
   it("should register listener for UPDATE_ROOM_LOBBY on mount", async () => {

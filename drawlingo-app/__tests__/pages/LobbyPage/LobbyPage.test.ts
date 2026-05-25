@@ -58,7 +58,7 @@ describe("LobbyPage", () => {
   it("should emit JOIN_LOBBY on mount", async () => {
     await renderPage();
 
-    expect(mockSocket.emit).toHaveBeenCalledWith("join lobby");
+    expect(mockSocket.emit).toHaveBeenCalledWith("join lobby", expect.any(Function));
   });
 
   it("should register listener for UPDATE_LOBBY on mount", async () => {
